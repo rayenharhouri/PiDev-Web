@@ -1,0 +1,1422 @@
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 1800px) {
+.custom-container {
+    max-width: 1400px;
+}
+.header-action {
+    margin-right: 70px;
+}
+.just-gamer-img .shape-3 {
+    right: -75px;
+}
+
+}
+
+
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 1500px) {
+.custom-container {
+    max-width: 1200px;
+}
+.container {
+	max-width: 1200px;
+}
+.header-icon a {
+    width: 85px;
+}
+.navbar-wrap ul {
+    margin-left: 85px;
+}
+.menu-area::before,
+.menu-area::after {
+    width: 115px;
+}
+.header-action {
+    margin-right: 65px;
+}
+.just-gamer-img .main-img {
+    max-width: 430px;
+}
+.just-gamer-img .shape-3 {
+    right: -30px;
+}
+.just-gamer-img .shape-2 {
+    right: 150px;
+    top: 121px;
+    max-width: 150px;
+}
+.just-gamer-img .shape-1 {
+    left: -55px;
+    max-width: 130px;
+}
+.banner-bg {
+    height: 680px;
+}
+.winner-thumb img {
+    max-width: 75%;
+    margin-bottom: 15px;
+}
+.gallery-active .slick-slide {
+    margin: 0 15px;
+    margin-top: 30px;
+}
+.gallery-active .slick-slide img {
+    max-width: 100%;
+}
+.gallery-active .slick-active.slick-center {
+	margin-top: 0;
+}
+.gallery-area .slider-nav {
+    max-width: 680px;
+    bottom: 0;
+}
+.live-video-active {
+    max-width: 528px;
+    flex: 0 0 528px;
+}
+.live-video-item .video {
+    margin: 25px 25px 70px;
+}
+.liveVideo {
+    width: 470px;
+    height: 470px;
+}
+.live-video-item .video::before {
+    width: 526px;
+    height: 526px;
+}
+.shop-date {
+    top: 11px;
+    right: 26px;
+}
+.newsletter-form {
+    margin-left: 55px;
+}
+.footer-menu nav .navigation li {
+    margin-right: 20px;
+}
+.transparent-header .header-action {
+    margin-right: 0;
+}
+.header-action ul .header-phone {
+    padding: 25px 20px;
+}
+.transparent-header .navbar-wrap ul li a {
+    padding: 48px 27px;
+}
+.banner-area-two.banner-bg {
+    height: 750px;
+}
+.menu-area.transparent-header::before,
+.menu-area.transparent-header::after {
+    width: 100px;
+}
+.banner-area-three .banner-content .title {
+    font-size: 70px;
+}
+.banner-area-three .banner-content p {
+    width: 85%;
+}
+.banner-img-wrap {
+    width: 480px;
+}
+.banner-img-item {
+    width: 220px;
+    flex: 0 0 220px;
+    height: 220px;
+}
+.banner-img-item img {
+    max-width: 100%;
+}
+.banner-img-item .shape {
+    max-width: 89%;
+}
+.banner-three-bg {
+    padding: 80px 0 100px;
+}
+.counter-item-two .counter-content p {
+    font-size: 23px;
+}
+.timeline-content .sold-img img {
+    border: 10px solid #171717;
+    max-width: 100%;
+}
+.stem-bg {
+    padding: 120px 0;
+}
+.breadcrumb-inner {
+    padding: 0 0;
+}
+.breadcrumb-shape img {
+    max-width: 290px;
+}
+.about-info-item {
+    padding: 30px 30px;
+}
+.about-info-icon {
+    margin-right: 20px;
+}
+.about-title .title {
+    font-size: 34px;
+}
+.breadcrumb-img-two {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.breadcrumb-img-two::before, .breadcrumb-img-two::after {
+    width: 175px;
+    height: 266px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.breadcrumb-img-two img {
+    max-width: 300px;
+}
+.breadcrumb-img-two:hover::before {
+    left: 20px;
+}
+.breadcrumb-img-two:hover::after {
+    left: auto;
+    right: 20px;
+}
+.sidebar-search input {
+    padding: 17px 100px 17px 20px;
+    height: 58px;
+}
+.blog-sidebar {
+    margin-left: 30px;
+}
+.contact-title p {
+    width: 100%;
+}
+.shop-details-thumb .shop-date {
+    right: 30px;
+    top: 0;
+    height: 65px;
+}
+.streams-bottom-wrap {
+    width: 50%;
+}
+.my-match-inner {
+    padding: 0 0;
+}
+
+
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1199.98px) {
+.custom-container {
+    max-width: 960px;
+}
+.header-action > ul li.header-btn {
+	display: none;
+}
+.header-shop-cart .minicart {
+	right: 0;
+}
+.navbar-wrap ul li a {
+    padding: 37px 23px;
+}
+.navbar-wrap ul {
+    margin-left: 100px;
+}
+.header-action ul .header-sine a {
+    display: none;
+}
+.header-icon a {
+    width: 72px;
+    height: calc(100% + 18px);
+}
+.navbar-wrap > ul > li > a::before {
+    left: -12px;
+}
+.banner-content .title {
+    font-size: 115px;
+}
+.single-thumb {
+    width: calc(100% / 6);
+    margin-bottom: 30px;
+}
+.live-video-active {
+    max-width: 60%;
+    flex: 0 0 60%;
+    margin: 0 0 0;
+}
+.live-video-navs {
+    width: 33%;
+    flex: 0 0 33%;
+}
+.live-videos-wrapper {
+    align-items: center;
+}
+.live-stream-wrap {
+    padding: 100px 0px 100px 65px;
+    margin-top: 0;
+}
+.live-stream-content {
+    margin-bottom: 50px;
+}
+.newsletter-wrap {
+    padding: 50px 40px;
+}
+.newsletter-title .title {
+    font-size: 36px;
+}
+.newsletter-form input {
+    clip-path: polygon(95% 0, 100% 36%, 100% 100%, 5% 100%, 0 66%, 0 0);
+}
+.just-gamer-img {
+    max-width: 575px;
+    margin: 0 auto 40px;
+}
+.winner-wrap {
+    margin-right: 15px;
+}
+.header-action {
+    margin-right: 30px;
+}
+.shop-content-top {
+    margin-bottom: 20px;
+}
+.transparent-header .header-action ul li.header-phone {
+    display: none;
+}
+.transparent-header .header-action ul li.header-th {
+    margin-right: 0;
+}
+.transparent-header .navbar-wrap ul {
+    margin-left: 95px;
+}
+.transparent-header .navbar-wrap ul li a {
+    padding: 37px 23px;
+}
+.banner-area-two .banner-content {
+    margin-top: 90px;
+}
+.banner-area-two.banner-bg {
+    height: 650px;
+}
+.offer-area .section-title .title {
+    font-size: 48px;
+}
+.offer-area::before {
+    left: auto;
+    right: 15px;
+}
+.offer-item {
+    padding: 30px 25px;
+}
+.counter-item .counter-content .count {
+    font-size: 65px;
+}
+.gp-item:not(:last-child) {
+    margin-bottom: 40px;
+}
+.gp-item:last-child {
+    margin-bottom: 0;
+}
+.give-player-bg {
+    background-position: bottom center;
+    padding-bottom: 115px;
+}
+.live-match-team img {
+    max-width: 100%;
+}
+.live-match-time > span {
+    margin: 0 auto 40px;
+}
+.live-match-time .time::before,
+.live-match-time .time::after {
+    left: -20px;
+}
+.live-match-time .time::after {
+    left: auto;
+    right: -20px;
+}
+.banner-img-wrap {
+    width: 100%;
+}
+.banner-area-three .banner-content .title {
+    font-size: 56px;
+}
+.banner-area-three .banner-content p {
+    width: 100%;
+}
+.banner-three-bg {
+    padding: 100px 0 100px;
+}
+.ClassyCountdown-wrapper > div {
+    margin: 0 20px 50px;
+}
+.countdown-wrap img {
+    max-width: 100%;
+}
+.counter-item-two .counter-content .count {
+    font-size: 32px;
+}
+.counter-area-two .counter-item-two .counter-content p {
+    font-size: 18px;
+    line-height: 1.5 !important;
+}
+.timeline-content > p {
+    margin: 0 0 0;
+}
+.timeline-bottom-image {
+    max-width: 820px;
+}
+.stem-content .title {
+    font-size: 76px;
+}
+.breadcrumb-img {
+    padding: 0 65px 0 0;
+    height: auto;
+}
+.breadcrumb-img img {
+    max-height: 245px;
+    max-width: 100%;
+}
+.breadcrumb-img::before {
+    display: none;
+}
+.breadcrumb-shape img {
+    max-width: 215px;
+}
+.breadcrumb-overflow {
+    padding: 55px 0 95px;
+}
+.about-info-item {
+    display: block;
+}
+.about-info-icon {
+    margin-bottom: 15px;
+}
+.blog-content .title {
+    font-size: 26px;
+}
+.blog-sidebar {
+    margin-left: 0;
+}
+.blog-categories ul li a {
+    padding: 15px 15px;
+}
+.rc-post-thumb {
+    width: 90px;
+    flex: 0 0 90px;
+}
+.rc-post-content .title {
+    font-size: 14px;
+}
+.blog-details-img {
+    margin: 0 0 20px;
+}
+.comment-reply-box {
+    padding: 40px 30px;
+}
+.contact-wrap {
+    margin: 0 50px 0 0;
+}
+.inner-shop-area .shop-sidebar {
+    margin: 120px 0 0;
+}
+.pagination-wrap ul {
+    justify-content: center;
+}
+.shop-details-thumb .shop-date {
+    height: 57px;
+}
+.match-single-content {
+    padding: 35px 25px;
+}
+.breadcrumb-img-three::before,
+.breadcrumb-img-three::after {
+    display: none;
+}
+.breadcrumb-img-three {
+    min-width: 100%;
+    margin: 0 0 0 0;
+}
+.breadcrumb-img-three img {
+    max-width: 100%;
+}
+.breadcrumb-bg-three .breadcrumb-content .title {
+    font-size: 50px;
+}
+.breadcrumb-img-three.right-team {
+    margin: 0 0 0 auto;
+}
+.live-streams-wrapper {
+    padding: 0 45px;
+}
+.live-streams-active .slick-arrow {
+    left: -30px;
+}
+.live-streams-active .slick-next {
+    right: -30px;
+    left: auto;
+}
+.prize-pool img {
+    max-width: 100%;
+}
+.my-match-box-wrap ul {
+    top: 60px;
+    left: 80px;
+    right: 80px;
+}
+.my-match-box-wrap {
+    margin-top: -25px;
+}
+.my-match-box-wrap ul li:nth-child(2) {
+    width: 260px;
+    flex: 0 0 260px;
+}
+.my-match-info {
+    padding: 0 0;
+}
+
+
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 991.98px) {
+.custom-container {
+    max-width: 720px;
+}
+.container {
+    max-width: 720px;
+}
+.main-header {
+	padding: 25px 0;
+}
+.menu-nav {
+	justify-content: space-between;
+}
+.header-action {
+	margin-right: 40px;
+}
+.header-shop-cart .minicart {
+	top: 51px;
+}
+.menu-outer .navbar-wrap {
+	display: block !important;
+}
+.menu-area .mobile-nav-toggler {
+	display: block;
+}
+.menu-area {
+    padding: 20px 0;
+}
+.header-action {
+    display: none;
+}
+.single-thumb {
+    width: calc(100% / 4);
+}
+.header-icon {
+    display: none;
+}
+.tournament-content {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.tournament-content p {
+    width: 90%;
+    margin: 0 auto 35px;
+}
+.tournament-content .title {
+    font-size: 40px;
+}
+.winner-wrap {
+    margin-right: 0;
+}
+.shop-date {
+    top: 8px;
+    right: 20px;
+}
+.shop-thumb .shop-img {
+    max-width: 160px;
+}
+.newsletter-wrap {
+    display: block;
+    text-align: center;
+}
+.newsletter-content {
+    width: 75%;
+    text-align: left;
+    margin: 0 auto 30px;
+}
+.newsletter-form input {
+    clip-path: polygon(96% 0, 100% 36%, 100% 100%, 4% 100%, 0 66%, 0 0);
+}
+.newsletter-form form::before {
+    height: 2px;
+    left: -9px;
+    bottom: -1px;
+    transform: rotate(40deg);
+}
+.live-video-navs {
+    width: 100%;
+    flex: 0 0 100%;
+}
+.live-video-active {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+.live-videos-wrapper {
+    display: block;
+}
+.live-stream-wrap {
+    padding: 70px 65px 70px 65px;
+}
+.video-nav-item::before {
+    display: none;
+}
+.video-nav-item {
+    display: block !important;
+    text-align: center;
+    padding: 0 25px 0 25px;
+    transform: scale(1);
+    margin-bottom: 0;
+}
+.video-nav-item .thumb {
+    width: 110px;
+    flex: 0 0 110px;
+    margin: 0 auto 15px;
+}
+.live-video-navs {
+    width: 100%;
+    flex: 0 0 100%;
+    margin: 50px 0 0;
+}
+.footer-top-wrap .f-logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.copyright-img img {
+    max-width: 100%;
+}
+.banner-area-two .banner-content {
+    margin-top: 80px;
+}
+.gp-item {
+    text-align: center;
+    padding: 0 19px;
+}
+.gp-item-top {
+    display: block;
+}
+.gp-item .gp-item-top .title {
+    margin: 25px 0 0 0 !important;
+}
+.gp-content {
+    text-align: center !important;
+}
+.live-match-time {
+    margin: 50px 0;
+}
+.live-match-team.right {
+    text-align: right;
+}
+.banner-three-bg {
+    padding: 100px 0 120px;
+}
+.banner-img-wrap {
+    width: 94%;
+    margin: 0 auto 60px;
+}
+.banner-area-three .banner-content {
+    text-align: center;
+}
+.banner-area-three .banner-content .small-title {
+    display: inline-block;
+}
+.banner-area-three .banner-content p {
+    width: 75%;
+    margin: 0 auto 30px;
+}
+.banner-area-three .banner-content .title {
+    display: block;
+}
+.banner-area-three .banner-content .banner-btn {
+    justify-content: center;
+}
+.counter-area-two .row .col-20 {
+    width: 33.333%;
+    flex: 0 0 33.333%;
+}
+.counter-area-two .counter-item-two .counter-content p {
+    font-size: 22px;
+}
+.counter-item-two .counter-content .count {
+    margin-bottom: 20px;
+}
+.counter-item-two .counter-content .count {
+    font-size: 36px;
+}
+.sold-percentage .title {
+    font-size: 36px;
+}
+.roadmap-timeline-wrap ul li::before {
+    left: 31%;
+}
+.timeline-content .accordion-button {
+    font-size: 25px;
+}
+.timeline-content .accordion-body .title {
+    font-size: 18px;
+}
+.timeline-content > p {
+    letter-spacing: 6px;
+    line-height: 2.4;
+}
+.breadcrumb-img {
+    padding: 0 0 0;
+    height: auto;
+}
+.breadcrumb-img-two::before,
+.breadcrumb-img-two::after {
+    display: none;
+}
+.breadcrumb-img-two {
+    padding: 0 0;
+}
+.breadcrumb-content .title {
+    font-size: 52px;
+}
+.blog-sidebar {
+    margin-top: 120px;
+}
+.rc-post-content .title {
+    font-size: 16px;
+}
+.blog-details-content blockquote {
+    padding: 47px 45px 47px 125px;
+}
+.contact-wrap {
+    margin: 0 0;
+}
+.contact-info-wrap {
+    margin: 70px 0 0;
+}
+.shop-details-thumb .shop-date {
+    height: 80px;
+    right: 45px;
+}
+.shop-details-content {
+    margin: 50px 0 0;
+}
+.shop-details-price {
+    margin-bottom: 25px;
+}
+.shop-details-quantity {
+    margin: 30px 0 40px;
+}
+.breadcrumb-bg-three .breadcrumb-content {
+    margin: 0 0 45px;
+}
+.my-match-box-wrap ul {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: unset;
+    display: block;
+}
+.my-match-box-wrap > img {
+    display: none;
+}
+.my-match-box-wrap {
+    margin: 0 auto 40px;
+    max-width: 70%;
+    background-color: rgba(42, 40, 49, 0.49);
+    box-shadow: 0px 3px 43px 0px rgba(15, 14, 13, 0.68);
+    padding: 50px 30px;
+}
+.my-match-box-wrap ul li:first-child,
+.my-match-box-wrap ul li:nth-child(2),
+.my-match-box-wrap ul li:last-child {
+    width: 100%;
+    flex: 0 0 100%;
+}
+.my-match-info {
+    padding: 0;
+    text-align: center;
+}
+.my-match-info h5 {
+    font-size: 20px;
+}
+.my-match-team {
+    justify-content: center;
+    margin-bottom: 35px;
+}
+.watch-stream {
+    justify-content: center;
+    margin-top: 25px;
+}
+.my-match-box-wrap:last-child {
+    margin-bottom: 0;
+}
+.match-menu {
+    margin-bottom: 40px;
+    justify-content: center;
+    margin-left: 0;
+    display: flex;
+}
+.live-streams-wrapper {
+    padding: 0 0;
+}
+.streams-bottom-wrap {
+    height: 120px;
+    width: 60%;
+    clip-path: polygon(0 0, 100% 0%, 96% 100%, 0% 100%);
+}
+.streams-bottom-wrap::before {
+    transform: rotate(8deg);
+    right: 11px;
+}
+.streams-content .title {
+    font-size: 17px;
+}
+.streams-content {
+    margin-left: 15px;
+}
+.streams-bottom-wrap .watch-stream {
+    margin-right: 45px;
+}
+.live-streams-active .slick-arrow {
+    left: 0;
+}
+.live-streams-active .slick-next {
+    right: 0;
+    left: auto;
+}
+
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 767.98px) {
+.custom-container,
+.container {
+    max-width: 100%;
+}
+.transparent-header {
+	top: 0;
+}
+.menu-area::after {
+	display: none;
+}
+.menu-area::before {
+	display: none;
+}
+.banner-content .small-title {
+    font-size: 18px;
+    letter-spacing: 12px;
+    margin-bottom: 15px;
+}
+.banner-content .title {
+    font-size: 70px;
+}
+.just-gamer-img .main-img {
+    max-width: 100%;
+}
+.just-gamer-img [class*="shape-"] {
+    display: none;
+}
+.single-thumb {
+    width: calc(100% / 3);
+}
+.live-stream-wrap {
+    padding: 40px 30px 50px 30px;
+}
+.newsletter-content {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+.section-title.title-style-two .title,
+.section-title .title {
+    font-size: 34px;
+}
+.just-gamer-content-box {
+    padding: 40px 25px;
+}
+.gamer-content {
+    align-items: flex-start;
+}
+.gamer-content i {
+    margin-top: 6px;
+}
+.section-title p {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.winner-wrap {
+    padding: 40px 25px;
+}
+.tournament-content .title {
+    font-size: 34px;
+}
+.gallery-active .slick-slide {
+    margin: 0 10px;
+    margin-top: 0;
+}
+.single-thumb a > img {
+    max-width: 100%;
+}
+.live-video-item .video::before {
+    display: none;
+}
+.shop-thumb .shop-img {
+    max-width: 145px;
+}
+.shop-date {
+    top: 15px;
+    right: 35px;
+}
+.liveVideo {
+    width: 320px;
+    height: 320px;
+}
+.banner-bg {
+    height: 520px;
+}
+.newsletter-wrap {
+    padding: 50px 25px;
+}
+.newsletter-title .title {
+    font-size: 30px;
+    margin: 0;
+}
+.newsletter-icon {
+    margin-bottom: 10px;
+}
+.newsletter-form {
+    margin-left: 0;
+}
+.newsletter-form form {
+    display: block;
+}
+.newsletter-form .btn {
+    position: unset;
+}
+.newsletter-form input {
+    clip-path: none;
+    margin-bottom: 15px;
+    padding: 14px 25px;
+}
+.newsletter-form form::before {
+    display: none;
+}
+.footer-menu nav {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.footer-menu nav .navigation {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.quick-link-list ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.quick-link-list ul li {
+    margin: 5px 15px 5px 15px;
+}
+.footer-social ul {
+    justify-content: center;
+}
+.copyright-text p {
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.scroll-top {
+    right: 15px;
+}
+.footer-menu nav .navigation li {
+    margin: 0 10px;
+}
+.footer-menu nav .navigation li a {
+    padding: 5px 10px;
+}
+.live-video-item .video {
+    margin: 0 0 20px;
+}
+.offer-area .section-title .title {
+    font-size: 34px;
+}
+.offer-area .section-title .title br {
+    display: none;
+}
+.offer-area::before {
+    left: auto;
+    right: 20px;
+    width: 85px;
+    height: 118px;
+}
+.counter-content {
+    margin-left: 25px;
+}
+.counter-item .counter-content .count {
+    font-size: 60px;
+}
+.gallery-active-two .slick-slide .popup-video {
+    width: 70px;
+    height: 70px;
+}
+.gallery-area-two .gallery-item img {
+    border: 7px solid #30344a;
+}
+.live-match-time > span {
+    margin: 0 auto 20px;
+}
+.counter-item {
+    justify-content: center;
+}
+.banner-img-item .shape {
+    display: none;
+}
+.banner-img-item {
+    width: 50%;
+    flex: 0 0 50%;
+    height: auto;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+.banner-img-wrap {
+    width: auto;
+    margin: 0 -10px 40px;
+}
+.banner-img-item:nth-child(4n+1) {
+    margin-top: 20px;
+}
+.banner-img-item:nth-child(4n+4) {
+    margin-top: -20px;
+}
+.banner-area-three .banner-content .title {
+    font-size: 36px;
+}
+.banner-area-three .banner-content p {
+    width: 100%;
+    margin: 0 auto 25px;
+}
+.title-style-three .title::after {
+    display: none;
+}
+.countdown-wrap p {
+    letter-spacing: 10px;
+}
+.counter-area-two .row .col-20 {
+    width: 75%;
+    flex: 0 0 75%;
+}
+.counter-item-two .counter-content .count {
+    margin-bottom: 5px;
+}
+.counter-item-two .counter-content {
+    margin-bottom: 50px;
+}
+.team-area-two {
+    padding: 110px 0 65px;
+}
+.roadmap-timeline-wrap::before,
+.roadmap-timeline-wrap ul li::before {
+    display: none;
+}
+.roadmap-timeline-wrap ul li {
+    display: block;
+    margin-bottom: 60px;
+}
+.timeline-content {
+    width: 100%;
+}
+.sold-percentage {
+    width: 100%;
+}
+.timeline-content .image {
+    margin-bottom: 25px;
+}
+.sold-percentage {
+    width: 100%;
+    margin-bottom: 25px;
+}
+.sold-percentage .title {
+    font-size: 30px;
+}
+.timeline-content > p {
+    letter-spacing: 5px;
+    line-height: 2;
+}
+.timeline-content .sold-img img {
+    border: 5px solid #171717;
+}
+.timeline-content .accordion-button {
+    font-size: 20px;
+    padding: 20px 20px;
+}
+.timeline-content .accordion-body {
+    padding: 0 20px 25px;
+}
+.roadmap-timeline-wrap ul li {
+    margin-bottom: 50px;
+}
+.timeline-bottom-image .main-img {
+    border: 5px solid #ff8503;
+}
+.timeline-bottom-image .shape {
+    display: none;
+}
+.timeline-bottom-image .btn {
+    left: 50%;
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.stem-content .title {
+    font-size: 52px;
+}
+.stem-content > span {
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+.stem-content .stem-icon a {
+    font-size: 84px;
+}
+.breadcrumb-shape {
+    display: none;
+}
+.breadcrumb-overflow {
+    padding: 60px 0 80px;
+}
+.breadcrumb-content .title {
+    font-size: 48px;
+    margin: 0 0 20px;
+}
+.about-title .title {
+    font-size: 22px;
+}
+.about-info-item {
+    padding: 30px 25px;
+}
+.blog-area,
+.blog-details-area {
+    padding: 120px 0 120px;
+}
+.blog-thumb.mb-50 {
+    margin-bottom: 25px;
+}
+.blog-content .title {
+    font-size: 24px;
+}
+.blog-details-content-bottom .social li a,
+.blog-content-bottom .social li a {
+    width: 46px;
+    height: 46px;
+    clip-path: polygon(78% 0, 100% 30%, 100% 100%, 28% 100%, 0% 74%, 0 0);
+}
+.blog-details-content-bottom .social li a::before,
+.blog-content-bottom .social li a::before {
+    left: -19px;
+    bottom: -1px;
+    transform: rotate(43deg);
+}
+.blog-details-content-bottom .social li a::after,
+.blog-content-bottom .social li a::after {
+    right: -21px;
+    top: -1px;
+    transform: rotate(52deg);
+}
+.blog-content-bottom .btn {
+    letter-spacing: 0;
+    font-size: 16px;
+    padding: 15px 25px;
+    margin: 15px 15px 0px 0;
+}
+.blog-meta ul li {
+    margin: 0 15px 5px 0;
+}
+.blog-details-content-bottom .social,
+.blog-content-bottom .social {
+    margin: 15px 0 0;
+}
+.blog-content-bottom {
+    padding-top: 10px;
+}
+.blog-sidebar {
+    margin-top: 80px;
+}
+.blog-details-content blockquote {
+    padding: 35px 35px;
+}
+.blog-details-content blockquote::before {
+    left: 30px;
+    top: 30px;
+    opacity: .2;
+    line-height: 1;
+}
+.blog-details-content blockquote p {
+    margin-bottom: 15px;
+}
+.avatar-post {
+    display: block;
+    padding: 35px 25px;
+    text-align: center;
+}
+.avatar-post-img {
+    margin: 0 0 20px;
+}
+.ap-content-top {
+    justify-content: center;
+}
+.avatar-post .social {
+    justify-content: center;
+}
+.comment-reply-box {
+    padding: 35px 25px;
+}
+.form-grp textarea,
+.form-grp input {
+    height: 58px;
+    padding: 16px 25px;
+}
+.rc-post-content .title {
+    font-size: 15px;
+}
+.blog-details-content-bottom .post-tags {
+    margin-right: 20px;
+}
+.contact-title .title {
+    font-size: 33px;
+}
+.contact-title .title span {
+    font-size: 28px;
+}
+.contact-info-list .content p br {
+    display: none;
+}
+.contact-area {
+    padding: 115px 0 120px;
+}
+.inner-shop-area {
+    padding: 120px 0 120px;
+}
+.shop-details-area {
+    padding: 120px 0 60px;
+}
+.shop-details-images .nav-tabs .nav-item {
+    max-width: 29%;
+}
+.shop-details-images .nav-tabs .nav-item .nav-link img {
+    max-width: 100%;
+}
+.shop-details-content > p {
+    width: 100%;
+}
+.shop-description-wrap .tab-content .tab-pane {
+    padding: 30px 25px 40px;
+}
+.product-desc-img {
+    margin-bottom: 25px;
+}
+.product-desc-review {
+    padding: 20px 20px;
+    overflow: hidden;
+}
+.shop-description-wrap .nav-tabs {
+    padding: 23px 25px 8px;
+}
+.shop-details-thumb .shop-date {
+    height: 45px;
+    right: 20px;
+}
+.shop-details-thumb .shop-date span {
+    font-size: 14px;
+}
+.shop-description-wrap .nav-tabs .nav-item {
+    margin: 0 30px 15px 0;
+}
+.breadcrumb-bg-three .breadcrumb-content .title {
+    font-size: 48px;
+}
+.breadcrumb-img-three.right-team {
+    margin: 45px 0 0 auto;
+}
+.match-single-img .row [class*="col-"]:first-child img {
+    margin: 0 0 25px;
+}
+.my-match-box-wrap {
+    margin: 0 auto 30px;
+    max-width: 100%;
+    padding: 40px 20px;
+}
+.team-one img {
+    max-width: 70px;
+}
+.match-menu {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto 30px;
+}
+.match-menu button {
+    margin-bottom: 10px;
+}
+.streams-bottom-wrap {
+    height: auto;
+    width: 100%;
+    position: unset;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    padding: 25px 25px;
+    display: block;
+}
+.streams-content {
+    margin-left: 0;
+}
+.streams-thumb a {
+    font-size: 50px;
+}
+.streams-content .title {
+    font-size: 20px;
+}
+.streams-bottom-wrap .watch-stream {
+    margin: 13px 0 0;
+    justify-content: flex-start;
+}
+.streams-bottom-wrap::before {
+    display: none;
+}
+.tournament-area-bg .live-streams-area {
+    padding: 110px 0 117px;
+}
+
+}
+
+
+@media (max-width: 420px) {
+.liveVideo {
+    width: 228px;
+    height: 228px;
+}
+.single-thumb {
+    width: calc(100% / 2);
+}
+.banner-content .title {
+    font-size: 54px;
+}
+.shop-date {
+    top: 6px;
+    right: 15px;
+}
+.breadcrumb-overflow {
+    padding: 60px 0 70px;
+}
+.contact-info-list {
+    padding: 30px 10px;
+}
+.contact-social {
+    padding: 0 10px 25px;
+}
+.shop-details-thumb .shop-date {
+    height: 38px;
+    right: 14px;
+}
+.shop-details-thumb .shop-date span {
+    font-size: 14px;
+}
+
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+.custom-container,
+.container {
+    max-width: 540px;
+}
+.just-gamer-img .main-img {
+    max-width: 80%;
+}
+.just-gamer-content-box {
+    padding: 50px 40px;
+}
+.section-title.title-style-two .title,
+.section-title .title {
+    font-size: 45px;
+}
+.tournament-content .title {
+    font-size: 45px;
+}
+.single-thumb {
+    width: calc(100% / 4);
+}
+.liveVideo {
+    width: 380px;
+    height: 380px;
+}
+.shop-date {
+    top: 10px;
+    right: 20px;
+}
+.newsletter-wrap {
+    padding: 50px 60px;
+}
+.banner-content .title {
+    font-size: 90px;
+}
+.just-gamer-img [class*="shape-2"] {
+    display: block;
+}
+.gp-item {
+    padding: 0 40px;
+}
+.banner-area-three .banner-content .title {
+    font-size: 60px;
+}
+.counter-area-two .row .col-20 {
+    width: 50%;
+    flex: 0 0 50%;
+}
+.stem-content .title {
+    font-size: 62px;
+}
+.about-title .title {
+    font-size: 28px;
+}
+.rc-post-content .title {
+    font-size: 16px;
+}
+.shop-details-thumb .shop-date span {
+    font-size: 16px;
+}
+.shop-details-thumb .shop-date {
+    height: 60px;
+    right: 30px;
+}
+.breadcrumb-img-three.right-team {
+    margin: 0 0 0 auto;
+}
+.breadcrumb-img-three .team-logo {
+    max-height: 100px;
+}
+.streams-bottom-wrap {
+    display: flex;
+}
+.streams-bottom-wrap .watch-stream {
+    margin: 0 0;
+    justify-content: flex-start;
+}
+.my-match-box-wrap {
+    margin: 0 auto 30px;
+    max-width: 90%;
+    padding: 40px 20px;
+}
+
+
+}
+
+
