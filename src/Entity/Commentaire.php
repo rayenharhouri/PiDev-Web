@@ -2,33 +2,43 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CommentaireRepository::class)
+ * Commentaire
+ *
+ * @ORM\Table(name="commentaire")
+ * @ORM\Entity
  */
 class Commentaire
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="id_pub", type="integer", nullable=false)
      */
-    private $id_u;
+    private $idPub;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="id_u", type="integer", nullable=false)
      */
-    private $id_pub;
+    private $idU;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=255, nullable=false)
      */
     private $comment;
 
@@ -37,26 +47,26 @@ class Commentaire
         return $this->id;
     }
 
-    public function getIdU(): ?int
+    public function getIdPub(): ?int
     {
-        return $this->id_u;
+        return $this->idPub;
     }
 
-    public function setIdU(int $id_u): self
+    public function setIdPub(int $idPub): self
     {
-        $this->id_u = $id_u;
+        $this->idPub = $idPub;
 
         return $this;
     }
 
-    public function getIdPub(): ?int
+    public function getIdU(): ?int
     {
-        return $this->id_pub;
+        return $this->idU;
     }
 
-    public function setIdPub(int $id_pub): self
+    public function setIdU(int $idU): self
     {
-        $this->id_pub = $id_pub;
+        $this->idU = $idU;
 
         return $this;
     }
@@ -72,4 +82,6 @@ class Commentaire
 
         return $this;
     }
+
+
 }

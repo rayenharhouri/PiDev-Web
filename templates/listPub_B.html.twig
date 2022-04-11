@@ -1,0 +1,116 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block body %}
+	<div class="main-content">
+
+		<div class="page-content">
+			<div
+				class="container-fluid">
+
+				<!-- start page title -->
+				<div class="row">
+					<div class="col-12">
+						<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+							<h4 class="mb-sm-0 font-size-18">Publication Management</h4>
+
+							<div class="page-title-right">
+								<ol class="breadcrumb m-0">
+									<li class="breadcrumb-item">
+										<a href="javascript: void(0);">BackOffice</a>
+									</li>
+									<li class="breadcrumb-item active">Blog_Details</li>
+								</ol>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- end page title -->
+
+				<div class="row align-items-center">
+					<div class="col-md-6">
+						
+					</div>
+
+					<div class="col-md-6">
+						<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+							
+							<div>
+								<a href="#" class="btn btn-light">
+									<i class="bx bx-plus me-1"></i>
+									Add New</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end row -->
+
+				<div class="table-responsive mb-4">
+					<table class="table align-middle datatable dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
+						<thead>
+							<tr>
+								<th scope="col" style="width: 50px;">
+									<div class="form-check font-size-16">
+										<input type="checkbox" class="form-check-input" id="checkAll">
+										<label class="form-check-label" for="checkAll"></label>
+									</div>
+								</th>
+								<th style="width: 180px; min-width: 80px;" scope="col">User</th>
+								<th scope="col">Publication</th>
+								<th scope="col">Image URL</th>
+								<th style="width: 80px; min-width: 80px;">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<div class="form-check font-size-16">
+										<input type="checkbox" class="form-check-input" id="contacusercheck1">
+										<label class="form-check-label" for="contacusercheck1"></label>
+									</div>
+								</th>
+								<td>
+									<img src="backOffice/assets/images/users/avatar-2.jpg" alt="" class="avatar-sm rounded-circle me-2">
+									<a href="#" class="text-body">Rayen Harhouri</a>
+								</td>
+								<td>ONLINE GAMES INCLUDING SHOOTING GAMES, ARCADE FREE GAMES THE RACING CAR GAMES AND MANY MORE</td>
+								<td>file:///C:/wamp64/www/PiDev/FrontOffice/halda/blog-details.html</td>
+
+
+								<td>
+									<div class="btn-group" role="group" aria-label="Basic example">
+										<div>
+											<button type="button" class="btn btn-outline-primary">modifier</button>
+										</div>
+										<div>
+											<button type="button" class="btn btn-outline-danger">Supprimer</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- end table -->
+	</div>
+	<!-- end table responsive -->
+
+</div>
+<!-- container-fluid --></div><!-- End Page-content --><footer class="footer">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6">
+			<script>
+				document.write(new Date().getFullYear())
+			</script>
+			© Minia.
+		</div>
+		<div class="col-sm-6">
+			<div class="text-sm-end d-none d-sm-block">
+				Design & Develop by
+				<a href="#!" class="text-decoration-underline">Themesbrand</a>
+			</div>
+		</div>
+	</div>
+</div></footer></div>{% endblock %}

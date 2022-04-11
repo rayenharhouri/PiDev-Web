@@ -10,6 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PublicationController extends AbstractController
 {
+    /**###########################
+     * <----Section Admin-------->
+     */###########################
     /**
      * @Route("/", name="home")
      */
@@ -28,6 +31,18 @@ class PublicationController extends AbstractController
             'controller_name' => 'PublicationController',
         ]);
     }
+      /**
+     * @Route("/listUsers", name="Luser")
+     */
+    public function Luser(): Response
+    {
+        return $this->render('listPub_B.html.twig', [
+            'controller_name' => 'PublicationController',
+        ]);
+    }
+    /**###########################
+     * <------Section UI--------->
+     */###########################
    /**
      * @Route("/publication", name="publication")
      */
@@ -40,10 +55,29 @@ class PublicationController extends AbstractController
     
 
     /**
-     * @Route("/AddPub",name="addPub")
+     * @Route("/addP", name="addP")
      */
-    public function addPub(Request $request){
-        $publication = new Publication();
-        
-    }
+    function Add(Request $request){
+        $pub=new Publication();
+        $form=$this->createform(PubType::class,$pub);
+        $form->add('Add New ', SubmitType::class,[
+            'attr' => [
+                'class'=>'btn btn-info waves-effect waves-light',
+                'style'=>'margin-left : 50px '
+            ]
+        ]) ;
+        $form->handleRequest($request) ; 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager() ; 
+            $em->persist($pub) ; 
+            $em->flush() ; 
+            return $this->redirectToRoute('publicite') ; //lien
+
+        } 
+
+        return $this->render("pub_back/Add.html.twig", [
+            'form' => $form->createView()
+        ]) ;
+
+   }
 }

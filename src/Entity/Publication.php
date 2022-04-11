@@ -2,71 +2,85 @@
 
 namespace App\Entity;
 
-use App\Repository\PublicationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PublicationRepository::class)
+ * Publication
+ *
+ * @ORM\Table(name="publication")
+ * @ORM\Entity
  */
 class Publication
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id_pub", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idPub;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="id_u", type="integer", nullable=false)
      */
-    private $id_u;
+    private $idU;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_pub", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $date_pub;
+    private $datePub = 'CURRENT_TIMESTAMP';
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     *
+     * @ORM\Column(name="reactions", type="integer", nullable=false)
      */
     private $reactions;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     *
+     * @ORM\Column(name="nbre_commentaires", type="integer", nullable=false)
      */
-    private $nbre_commentaire;
+    private $nbreCommentaires;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="topic", type="string", length=120, nullable=false)
      */
     private $topic;
 
-    public function getId(): ?int
+    public function getIdPub(): ?int
     {
-        return $this->id;
+        return $this->idPub;
     }
 
     public function getIdU(): ?int
     {
-        return $this->id_u;
+        return $this->idU;
     }
 
-    public function setIdU(int $id_u): self
+    public function setIdU(int $idU): self
     {
-        $this->id_u = $id_u;
+        $this->idU = $idU;
 
         return $this;
     }
 
     public function getDatePub(): ?\DateTimeInterface
     {
-        return $this->date_pub;
+        return $this->datePub;
     }
 
-    public function setDatePub(?\DateTimeInterface $date_pub): self
+    public function setDatePub(\DateTimeInterface $datePub): self
     {
-        $this->date_pub = $date_pub;
+        $this->datePub = $datePub;
 
         return $this;
     }
@@ -83,14 +97,14 @@ class Publication
         return $this;
     }
 
-    public function getNbreCommentaire(): ?int
+    public function getNbreCommentaires(): ?int
     {
-        return $this->nbre_commentaire;
+        return $this->nbreCommentaires;
     }
 
-    public function setNbreCommentaire(?int $nbre_commentaire): self
+    public function setNbreCommentaires(int $nbreCommentaires): self
     {
-        $this->nbre_commentaire = $nbre_commentaire;
+        $this->nbreCommentaires = $nbreCommentaires;
 
         return $this;
     }
@@ -106,4 +120,6 @@ class Publication
 
         return $this;
     }
+
+
 }
