@@ -1,0 +1,37 @@
+{% extends "base-front.html.twig" %}
+
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <div class="col-4">
+        <p style="color: red">
+            {{ form_errors(registrationForm.nom) }}
+            {{ form_errors(registrationForm.prenom) }}
+            {{ form_errors(registrationForm.equipe) }}
+            {{ form_errors(registrationForm.best_game) }}
+            {{ form_errors(registrationForm.email) }}
+            {{ form_errors(registrationForm.login) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+            {{ form_errors(registrationForm.image) }}
+        </p>
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.equipe) }}
+        {{ form_row(registrationForm.best_game) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.login) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.image) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
