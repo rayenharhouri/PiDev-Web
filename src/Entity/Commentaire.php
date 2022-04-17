@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Commentaire
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commentaire
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Publication", inversedBy="Commentaire")
+     */
+    
+
     /**
      * @var int
      *
@@ -24,6 +30,8 @@ class Commentaire
     /**
      * @var int
      *
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="comment")
+     * @ORM\JoinColumn(nullable=false)
      * @ORM\Column(name="id_pub", type="integer", nullable=false)
      */
     private $idPub;
@@ -38,26 +46,27 @@ class Commentaire
     /**
      * @var string
      *
+     *  @Assert\NotBlank(message="WRITE SOMETHING ..")
+     *  @Assert\Length(
+     *      min = 10,
+     *      max = 100,
+     *      minMessage = "The Topic Description must be at least {{ limit }} characters long",
+     *      maxMessage = "The Topic Description cannot be longer than {{ limit }} characters"
+     *          )
      * @ORM\Column(name="comment", type="string", length=255, nullable=false)
      */
     private $comment;
+
+
+
+ 
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdPub(): ?int
-    {
-        return $this->idPub;
-    }
 
-    public function setIdPub(int $idPub): self
-    {
-        $this->idPub = $idPub;
-
-        return $this;
-    }
 
     public function getIdU(): ?int
     {
@@ -79,6 +88,18 @@ class Commentaire
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getIdPub()
+    {
+        return $this->idPub;
+    }
+
+    public function setIdPub(int $idPub): self
+    {
+        $this->idPub = $idPub;
 
         return $this;
     }

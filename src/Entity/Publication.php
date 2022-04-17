@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Publication
  *
@@ -29,33 +31,41 @@ class Publication
     private $idU;
 
     /**
-     * @var \DateTime
+     * @var string|null
      *
-     * @ORM\Column(name="date_pub", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="date_pub", type="string", length=30, nullable=true)
      */
-    private $datePub = 'CURRENT_TIMESTAMP';
+    private $datePub;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="reactions", type="integer", nullable=false)
+     * @ORM\Column(name="reactions", type="integer", nullable=true)
      */
-    private $reactions;
+    private $reactions = '0';
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="nbre_commentaires", type="integer", nullable=false)
+     * @ORM\Column(name="nbre_commentaires", type="integer", nullable=true)
      */
-    private $nbreCommentaires;
+    private $nbreCommentaires = '0';
 
     /**
      * @var string
-     *
      * @ORM\Column(name="topic", type="string", length=120, nullable=false)
+     *  @Assert\NotBlank(message="WRITE SOMETHING ..")
+     *  @Assert\Length(
+     *      min = 10,
+     *      max = 100,
+     *      minMessage = "The Topic Description must be at least {{ limit }} characters long",
+     *      maxMessage = "The Topic Description cannot be longer than {{ limit }} characters"
+     *          )
      */
     private $topic;
 
+
+    
     public function getIdPub(): ?int
     {
         return $this->idPub;
@@ -73,12 +83,12 @@ class Publication
         return $this;
     }
 
-    public function getDatePub(): ?\DateTimeInterface
+    public function getDatePub(): ?string
     {
         return $this->datePub;
     }
 
-    public function setDatePub(\DateTimeInterface $datePub): self
+    public function setDatePub(?string $datePub): self
     {
         $this->datePub = $datePub;
 
@@ -90,7 +100,7 @@ class Publication
         return $this->reactions;
     }
 
-    public function setReactions(int $reactions): self
+    public function setReactions(?int $reactions): self
     {
         $this->reactions = $reactions;
 
@@ -102,7 +112,7 @@ class Publication
         return $this->nbreCommentaires;
     }
 
-    public function setNbreCommentaires(int $nbreCommentaires): self
+    public function setNbreCommentaires(?int $nbreCommentaires): self
     {
         $this->nbreCommentaires = $nbreCommentaires;
 
@@ -120,6 +130,11 @@ class Publication
 
         return $this;
     }
+
+
+
+
+
 
 
 }

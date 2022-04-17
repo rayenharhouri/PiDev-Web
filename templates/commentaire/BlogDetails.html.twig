@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %}
 {% block body %}
 	<main>
 
@@ -34,81 +34,62 @@
 			</div>
 		</section>
 		<!-- breadcrumb-area-end -->
-		
+
 		<!-- blog-details-area -->
 		<section class="blog-details-area black-bg">
-			<div class="container">		
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-8">
-					<div class="comment-reply-box">
-							<form action="#">
-								<div class="row">
-									<div class="col-md-12" >
-										<div class="form-grp">
-											<input type="text" placeholder="Image URL">
-										</div>
+						<div style="margin-left:40%;margin-bottom:20px;">
+							<button class="btn" type="submit" onclick="location.href='{{ path('app_pubb_new') }}'">POST PUBLICATION</button>
+						</div>
+						{<div class="blog-thumb mb-50">
+							<img src="assets/img/blog/blog_img01.jpg" alt="">
+						</div>
+						{% for pub in publications %}
+							<!-- blog-details-area -->
+							<div class="blog-item mb-60">
+
+								<div class="blog-content blog-details-content">
+									<h4 class="small-title">RAYEN HARHOURI</h4>
+									<h2 class="title">{{ pub.topic }}</h2>
+									<div class="blog-meta">
+										<ul>
+											<li>
+												<i class="far fa-clock">{{ pub.datePub }}</i>
+											</li>
+											<li>
+												<a href="{{ path('app_comment_new' , {'id': pub.idPub}) }}">
+													<i class="far fa-comment"></i> {{ pub.nbreCommentaires }}</a>
+											</li>
+											<li>
+												<i class="far fa-eye"></i>4,735 VIEWS</li>
+										</ul>
 									</div>
+
+									{# <------------------Commentaire--------------------------->#}
+									{% for c in commentaires %}
+										{% if pub.idPub == c.idPub %}
+											<blockquote>
+												<p>“ {{ c.comment }}
+												</p>
+												<cite>Rayen Harhouri</cite>
+
+											</blockquote>
+										{% endif %}
+										{# <------------------EndCommentaire--------------------------->#}
+									{% endfor %}
 								</div>
-								<div class="form-grp">
-									<textarea name="comments" placeholder="Comments *"></textarea>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-									<label class="form-check-label" for="flexCheckDefault">
-										Save my name, email, and website in this browser
-									</label>
-								</div>
-								<button class="btn" type="submit">POST PUBLICATION</button>
-							</form>
-						</div>
-					{% for i in 1..3 %}
-						<!-- blog-details-area -->
-						<div class="blog-item mb-60">
-							<div class="blog-thumb mb-50">
-								<img src="assets/img/blog/blog_img01.jpg" alt="">
 							</div>
-							<div class="blog-content blog-details-content">
-								<h4 class="small-title">dota 2 game</h4>
-								<h2 class="title">online games including shooting games, arcade free games the racing car games and many more</h2>
-								<div class="blog-meta">
-									<ul>
-										<li>
-											<i class="far fa-clock"></i>march 10, 2022</li>
-										<li>
-											<a href="#">
-												<i class="far fa-comment"></i>25 COMMENTS</a>
-										</li>
-										<li>
-											<i class="far fa-eye"></i>4,735 VIEWS</li>
-									</ul>
-								</div>
-								{# <------------------Commentaire--------------------------->#}
-								{% for i in 1..3 %}
-								<blockquote>
-									<p>“ Aliquam lobortis printing and typesetting industry. Lorem Ipsum been the industry's standard dummy text ever since the 15s, when an unknown printer took galley of type and scrambled it to make a type specimen book. It has survived not only
-									</p>
-									<cite>Alexander Lee</cite>
-								</blockquote>
-								{# <------------------EndCommentaire--------------------------->#}
-								{% endfor %}	
-							</div>
-						</div>
-						<div class="comment-reply-box" >
-							<form action="#">
-								<div class="form-grp">
-									<textarea name="comments" placeholder="Comment "></textarea>
-								</div>
-								<button class="btn" type="submit">POST COMMENT</button>
-							</form>
-						</div>
-						<!-- blog-details-area-end -->
-					{% endfor %}	
-						
+
+							<!-- blog-details-area-end -->
+						{% endfor %}
+
 						<div class="blog-next-prev mb-75">
 							<a href="#">
 								<i class="fas fa-angle-double-left"></i>GO BACK TO BLOG</a>
 						</div>
-						
+
 					</div>
 					<div class="col-lg-4">
 						<aside class="blog-sidebar">
@@ -182,14 +163,7 @@
 									<div class="sn-thumb mb-30">
 										<img src="assets/img/blog/newsletter_img.png" alt="">
 									</div>
-									{# <div class="sn-content">
-									                                            <p>A newsletter is an email you can send to customers!</p>
-									                                            <form action="#">
-									                                                <input type="text" placeholder="Enter email">
-									                                                <button>Subscribe Now</button>
-									                                            </form>
-									                                            <p class="last-text">Don’t worry, we don’t spam</p>
-									                                        </div> #}
+
 								</div>
 							</div>
 							<div class="blog-widget">

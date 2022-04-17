@@ -1,6 +1,12 @@
 {% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Commentaire{% endblock %}
+
 {% block body %}
-	<div class="main-content">
+  <a href="{{ path('app_comment_index') }}">back to list</a>
+
+    <a href="{{ path('app_comment_edit', {'id': commentaire.id}) }}">edit</a>
+    <div class="main-content">
 
 		<div class="page-content">
 			<div
@@ -35,7 +41,7 @@
 						<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
 							
 							<div>
-								<a href="#" class="btn btn-light">
+								<a href="{{ path('admin_pubb_new') }}" class="btn btn-light">
 									<i class="bx bx-plus me-1"></i>
 									Add New</a>
 							</div>
@@ -55,11 +61,15 @@
 									</div>
 								</th>
 								<th style="width: 180px; min-width: 80px;" scope="col">User</th>
-								<th scope="col">Publication</th>
-								<th scope="col">Image URL</th>
+								<th scope="col">Commentaire</th>
+								
+								<th style="width: 80px; min-width: 80px;">ID PUB</th>
+								<th style="width: 80px; min-width: 80px;">ID USER</th>
 								<th style="width: 80px; min-width: 80px;">Action</th>
+								
 							</tr>
 						</thead>
+						 
 						<tbody>
 							<tr>
 								<th scope="row">
@@ -69,48 +79,23 @@
 									</div>
 								</th>
 								<td>
-									<img src="backOffice/assets/images/users/avatar-2.jpg" alt="" class="avatar-sm rounded-circle me-2">
 									<a href="#" class="text-body">Rayen Harhouri</a>
 								</td>
-								<td>ONLINE GAMES INCLUDING SHOOTING GAMES, ARCADE FREE GAMES THE RACING CAR GAMES AND MANY MORE</td>
-								<td>file:///C:/wamp64/www/PiDev/FrontOffice/halda/blog-details.html</td>
-
-
+								<td>{{ commentaire.comment }}</td>
+								<td>{{ commentaire.idPub }}</td>
+								<td>{{ commentaire.idU }}</td>
 								<td>
-									<div class="btn-group" role="group" aria-label="Basic example">
-										<div>
-											<button type="button" class="btn btn-outline-primary">modifier</button>
-										</div>
-										<div>
-											<button type="button" class="btn btn-outline-danger">Supprimer</button>
-										</div>
-									</div>
+									 {{ include('comment/_delete_form.html.twig') }}
 								</td>
 							</tr>
+							
 						</tbody>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+        
 		<!-- end table -->
 	</div>
-	<!-- end table responsive -->
-
-</div>
-<!-- container-fluid --></div><!-- End Page-content --><footer class="footer">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-6">
-			<script>
-				document.write(new Date().getFullYear())
-			</script>
-			© Minia.
-		</div>
-		<div class="col-sm-6">
-			<div class="text-sm-end d-none d-sm-block">
-				Design & Develop by
-				<a href="#!" class="text-decoration-underline">Themesbrand</a>
-			</div>
-		</div>
-	</div>
-</div></footer></div>{% endblock %}
+   
+{% endblock %}

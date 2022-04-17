@@ -42,14 +42,14 @@
                                 <div class="blog-thumb mb-50">
                                     <a href="blog-details.html"><img src="assets/img/blog/blog_img01.jpg" alt=""></a>
                                 </div>
+                                 {% for publication in publications %} 
                                 <div class="blog-content">
-                                    
-                                    <h2 class="title"><a href="blog-details.html">online games including shooting games, arcade free games the racing car games and many more.</a></h2>
+                                    <h2 class="title"><a href="blog-details.html">{{ publication.topic }}</a></h2>
                                     <div class="blog-meta">
                                         <ul>
-                                            <li>BY <a href="#">thomas lee</a></li>
-                                            <li><i class="far fa-clock"></i>march 10, 2022</li>
-                                            <li><a href="#"><i class="far fa-comment"></i>25 COMMENTS</a></li>
+                                            <li>BY <a href="#">Rayen Harhouri</a></li>
+                                            <li><i class="far fa-clock"></i>{{ publication.datePub }}</li>
+                                            <li><a href="#"><i class="far fa-comment"></i>{{ publication.nbreCommentaires }}</a></li>
                                             <li><i class="far fa-eye"></i>4,735 VIEWS</li>
                                         </ul>
                                     </div>
@@ -63,6 +63,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                 {% endfor %} 
                             </div>
                             
                             
