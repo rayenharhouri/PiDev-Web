@@ -1,0 +1,66 @@
+{% extends 'base_client.html.twig' %}
+{% block Name %}
+Tournoi
+ {% endblock %}
+ {% block Name2 %}
+ Tournoi
+  {% endblock %}
+{% block Content %}
+
+      {% for tournoi in tournois %}
+        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+
+         <div class="row">
+                                               <div class="col-12">
+                                                   <div class="my-match-wrap">
+                                                       <div class="my-match-box-wrap wow fadeInDown" data-wow-delay=".2s">
+                                                           <img src="http://localhost:8000/client/assets/img/bg/my_match_box.png" alt="" class="match-box-bg">
+                                                           <ul>
+                                                              <li>
+                                                                                                                       <div class="my-match-team">
+                                                                                                                           <div class="team-one">
+                                                                                                                               <a href="index-2.html"><img src="assets/img/team/my_match_clan01.png" alt=""></a>
+                                                                                                                           </div>
+                                                                                                                           <div class="vs">
+                                                                                                                               <img src="assets/img/team/match_vs02.png" alt="">
+                                                                                                                           </div>
+                                                                                                                           <div class="team-one">
+                                                                                                                               <a href="index-2.html"><img src="assets/img/team/my_match_clan02.png" alt=""></a>
+                                                                                                                           </div>
+                                                                                                                       </div>
+                                                                                                                   </li>
+ <li>
+                                                            <div class="my-match-info">
+                                                                <a href="#" target="_blank" class="live-btn">ID : {{ tournoi.idTournoi }}</a>
+                                                                <h5> Nombre equipe : {{ tournoi.nombreEquipe }}</h5>
+                                                                  <h3> Date : {{ tournoi.date ? tournoi.date|date('Y-m-d') : '' }}</h3>
+
+                                                            </div>
+                                                        </li>
+                                                                 <li>
+                                                                                                                                                                        <h3> Type : {{ tournoi.typeJeu }}</h3>
+
+                                                                                                                                                                                                                                    <span>  Prix :  {{ tournoi.prix }}</span>      </li>
+                                                                                                                                                                         </ul>
+                                                                                                                                                                                                                                                                                  </div>
+
+                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                         </div>
+
+                                                          {% else %}
+                                                      <li>
+                                                                                                                 <div class="my-match-info">
+
+                                                                                                                 </div>
+                                                                                                             </li>
+
+
+                                                          {% endfor %}
+
+
+{% endblock %}
+
+
+

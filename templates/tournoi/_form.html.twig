@@ -1,0 +1,63 @@
+<style>
+    .form-error {
+        color:red;
+    }
+    Cod
+</style>
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+
+<div class="form-group">
+
+    <input type="number" name="name" id="name" value="Nombre d equipe" placeholder="Nombre equipe 🏨" disabled required/>
+    {{ form_widget(form.nombreEquipe)}}
+
+    <div class="form-error">
+
+        {{ form_errors(form.nombreEquipe)}}
+    </div>
+    <br>
+
+    <input type="date" name="name" id="name" placeholder="Date Tournois" disabled required/>
+    {{ form_widget(form.date)}}
+    <div class="form-error">
+
+        {{ form_errors(form.date)}}
+    </div>
+    <br>
+
+
+
+
+
+
+    <input type="text" name="name" id="name" value="Type Jeux 💺" disabled required/>
+    {{ form_widget(form.typeJeu)}}
+    <div class="form-error">
+
+        {{ form_errors(form.typeJeu)}}
+    </div>
+    <br>
+
+    <input type="number" name="name" id="name" placeholder="prix 💺"  disabled required/>
+    {{ form_widget(form.prix)}}
+    <div class="form-error">
+
+        {{ form_errors(form.prix)}}
+    </div>
+
+    <br>
+
+
+
+
+
+    <br>
+    <button class="btn btn-primary" >{{ button_label|default('Save') }}</button>
+
+
+
+
+
+    {{ form_end(form) }}

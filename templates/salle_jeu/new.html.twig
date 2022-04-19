@@ -1,0 +1,24 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block Content %}
+
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">New SalleJeu</h1>
+
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+
+
+                                  {{ include('salle_jeu/_form.html.twig') }}
+
+                                  <a class="btn btn-primary" href="{{ path('app_salle_jeu_index') }}">back to list</a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+
+{% endblock %}

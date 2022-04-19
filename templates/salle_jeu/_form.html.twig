@@ -1,0 +1,50 @@
+<style>
+    .form-error {
+        color:red;
+    }
+    Cod
+</style>
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+
+<div class="form-group">
+
+    <input type="text" name="name" id="name" value="Nom salle de jeux " placeholder="Nom salle de jeux  🏨" disabled required/>
+    {{ form_widget(form.nomsallej)}}
+
+    <div class="form-error">
+
+        {{ form_errors(form.nomsallej)}}
+    </div>
+    <br>
+
+    <input type="number" name="name" id="idTournementp" placeholder="idTournementp" disabled required/>
+    {{ form_widget(form.idTournementp)}}
+    <div class="form-error">
+
+        {{ form_errors(form.idTournementp)}}
+    </div>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+    <button class="btn btn-primary" >{{ button_label|default('Save') }}</button>
+
+
+
+
+
+    {{ form_end(form) }}
