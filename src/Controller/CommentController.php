@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Commentaire;
 use App\Entity\Publication;
 use App\Form\CommentaireType;
+use App\Repository\PublicationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,12 +38,12 @@ class CommentController extends AbstractController
     /**
      * @Route("/newC/{id}", name="app_comment_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, Publication $pub): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, int $id,PublicationRepository $rp): Response
     {
         $commentaire = new Commentaire();
+        $commentaire->setPublication($rp->find($id));
         $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($commentaire);
             $entityManager->flush();

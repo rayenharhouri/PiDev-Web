@@ -13,28 +13,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Commentaire
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Publication", inversedBy="Commentaire")
-     */
     
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id_c", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="comment")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="id_pub", type="integer", nullable=false)
-     */
-    private $idPub;
+ 
 
     /**
      * @var int
@@ -57,9 +47,13 @@ class Commentaire
      */
     private $comment;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="commentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $publication;
 
 
- 
 
     public function getId(): ?int
     {
@@ -92,14 +86,15 @@ class Commentaire
         return $this;
     }
 
-    public function getIdPub()
+
+    public function getPublication(): ?Publication
     {
-        return $this->idPub;
+        return $this->publication;
     }
 
-    public function setIdPub(int $idPub): self
+    public function setPublication(?Publication $publication): self
     {
-        $this->idPub = $idPub;
+        $this->publication = $publication;
 
         return $this;
     }

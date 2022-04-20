@@ -59,7 +59,7 @@
 												<i class="far fa-clock">{{ pub.datePub }}</i>
 											</li>
 											<li>
-												<a href="{{ path('app_comment_new' , {'id': pub.idPub}) }}">
+												<a href="{{ path('app_comment_new' , {'id': pub.id}) }}">
 													<i class="far fa-comment"></i> {{ pub.nbreCommentaires }}</a>
 											</li>
 											<li>
@@ -69,7 +69,7 @@
 
 									{# <------------------Commentaire--------------------------->#}
 									{% for c in commentaires %}
-										{% if pub.idPub == c.idPub %}
+										{% if pub.id == c.publication.id %}
 											<blockquote>
 												<p>“ {{ c.comment }}
 												</p>

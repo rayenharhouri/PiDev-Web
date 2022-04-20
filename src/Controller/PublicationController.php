@@ -54,7 +54,7 @@ class PublicationController extends AbstractController
     }
 
     /**
-     * @Route("admin/show/{idPub}", name="app_pubb_show", methods={"GET"})
+     * @Route("admin/show/{id}", name="app_pubb_show", methods={"GET"})
      */
     public function show(Publication $publication): Response
     {
@@ -95,11 +95,11 @@ class PublicationController extends AbstractController
         ]);
     }
     /**
-     * @Route("/admin/{idPub}", name="Admin_Delete", methods={"POST"})
+     * @Route("/admin/{id}", name="Admin_Delete", methods={"POST"})
      */
     public function deleteA(Request $request, Publication $publication, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $publication->getIdPub(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $publication->getId(), $request->request->get('_token'))) {
             $entityManager->remove($publication);
             $entityManager->flush();
         }
@@ -108,7 +108,7 @@ class PublicationController extends AbstractController
     }
 
     /**
-     * @Route("/{idPub}/editA", name="admin_pubb_edit", methods={"GET", "POST"})
+     * @Route("/{id}/editA", name="admin_pubb_edit", methods={"GET", "POST"})
      */
     public function editA(Request $request, Publication $publication, EntityManagerInterface $entityManager): Response
     {
@@ -149,7 +149,7 @@ class PublicationController extends AbstractController
 
 
     /**
-     * @Route("/{idPub}/edit", name="app_pubb_edit", methods={"GET", "POST"})
+     * @Route("/{id}/edit", name="app_pubb_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Publication $publication, EntityManagerInterface $entityManager): Response
     {
@@ -189,11 +189,11 @@ class PublicationController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{idPub}", name="app_pubb_delete", methods={"POST"})
+     * @Route("/{id}", name="app_pubb_delete", methods={"POST"})
      */
     public function delete(Request $request, Publication $publication, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $publication->getIdPub(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $publication->getId(), $request->request->get('_token'))) {
             $entityManager->remove($publication);
             $entityManager->flush();
         }

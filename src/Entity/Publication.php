@@ -17,11 +17,11 @@ class Publication
     /**
      * @var int
      *
-     * @ORM\Column(name="id_pub", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idPub;
+    private $id;
 
     /**
      * @var int
@@ -64,11 +64,21 @@ class Publication
      */
     private $topic;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="publication")
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
+
 
     
-    public function getIdPub(): ?int
+    public function getid(): ?int
     {
-        return $this->idPub;
+        return $this->id;
     }
 
     public function getIdU(): ?int
@@ -127,6 +137,36 @@ class Publication
     public function setTopic(string $topic): self
     {
         $this->topic = $topic;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getPublication() === $this) {
+                $commentaire->setPublication(null);
+            }
+        }
 
         return $this;
     }

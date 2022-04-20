@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('app_pubb_delete', {'idPub': publication.idPub}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ publication.idPub) }}">
+<form method="post" action="{{ path('app_pubb_delete', {'id': publication.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ publication.id) }}">
     <button class="btn btn-outline-danger">Delete</button>
 </form>

@@ -83,10 +83,10 @@
 								<td>
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<div>
-											<button onclick="location.href='{{ path('admin_pubb_edit', {'idPub': publication.idPub}) }}'" type="button" class="btn btn-outline-primary" >modifier</button>
+											<button onclick="location.href='{{ path('admin_pubb_edit', {'id': publication.id}) }}'" type="button" class="btn btn-outline-primary" >modifier</button>
 										</div>
 										<div>
-											<button onclick="location.href='{{ path('app_pubb_show', {'idPub': publication.idPub}) }}'" type="button" class="btn btn-outline-danger">Show</button>
+											<button onclick="location.href='{{ path('app_pubb_show', {'id': publication.id}) }}'" type="button" class="btn btn-outline-danger">Show</button>
 										</div>
 									</div>
 								</td>
