@@ -1,0 +1,58 @@
+{% extends 'base-back.html.twig' %}
+{% block titre %} Control des Utilisatuers {% endblock %}
+{% set route = app.request.attributes.get('_route') %}
+{% block body %}
+    <h1>Liste des Admins</h1>
+    <table class="table">
+        <thead>
+        <th>ID</th>
+        <th>EMAIL</th>
+        <th>ROLES</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Best Game</th>
+        <th>Equipe</th>
+        <th>Verifié</th>
+        <th>ACTIONS</th>
+        </thead>
+        <tbody>
+        {% for user in user %}
+            <tr>
+                {% if "ROLE_ADMIN" in user.roles %}
+                    <td>{{ user.ID }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% for role  in user.roles %}
+                            {% if role == "ROLE_CLIENT" %}
+                                Client
+                            {% elseif role == "ROLE_SPECIALISTE" %}
+                                Specialiste
+                            {% elseif role == "ROLE_ADMIN" %}
+                                Administrateur
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.bestgame }}</td>
+                    <td>{{ user.equipe.nome }}</td>
+                    <td>
+                        {% if user.isverified == "1" %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('admin_modifier_utilisateur' , { 'id': user.id , 'route': route  }) }}">Modifier</a></td>
+                    <td><a href="{{ path('admin_supprimer_utilisateur' , { 'id': user.id , 'route': route  }) }}">Supprimer</a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucun Admin Inscri</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

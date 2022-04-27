@@ -1,0 +1,33 @@
+{% extends 'base-back.html.twig' %}
+{% block titre %} Control des Equipes {% endblock %}
+{% block body %}
+
+    <?php echo ?>
+    <h1>Liste des Equipes</h1>
+    <table class="table">
+        <thead>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Titres</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+        {% for equipe in equipes %}
+            <tr>
+                    <td>{{ equipe.id }}</td>
+                    <td>{{ equipe.nome }}</td>
+                    <td>{{ equipe.titres }}</td>
+
+                    <td><a href="{{ path('admin_modifier_equipe' , { 'id': equipe.id}) }}">Modifier</a></td>
+                    <td><a href="{{ path('admin_supprimer_equipe' , { 'id': equipe.id}) }}">Supprimer</a>
+                    </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucune Equipe Inscrite</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ include('equipe/new.html.twig') }}
+{% endblock %}
