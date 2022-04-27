@@ -114,7 +114,10 @@ class TournoiController extends AbstractController
 
               $donnees = $this->getDoctrine()
                                     ->getRepository(Tournoi::class)
-                                    ->findBy([],['idTournoi' => 'desc']);
+                                    ->findBy([],['idTournoi' => 'de
+
+
+                                    sc']);
 
                                 $tournois = $paginator->paginate(
                                     $donnees, // Requête contenant les données à paginer (ici nos articles)
@@ -193,6 +196,27 @@ class TournoiController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
+  /**
+     * @Route("/participer/{idTournoi}", name="app_tournoi_participer", methods={"GET", "POST"})
+     */
+    public function participer(Request $request, Tournoi $tournoi, EntityManagerInterface $entityManager): Response
+    {
+       $v = $tournoi->getNombreEquipe();
+
+       $tournoi->setNombreEquipe($v-1);
+          $entityManager->flush();
+              $tournois = $entityManager
+                        ->getRepository(Tournoi::class)
+                        ->findAll();
+
+                    return $this->render('tournoi/show_user.html.twig', [
+                        'tournois' => $tournois,
+                    ]);
+
+    }
+
 
     /**
      * @Route("/{idTournoi}", name="app_tournoi_delete", methods={"POST"})

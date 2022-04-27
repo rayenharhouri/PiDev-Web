@@ -35,6 +35,12 @@ Tournoi
                                                                 <h5> Nombre equipe : {{ tournoi.nombreEquipe }}</h5>
                                                                   <h3> Date : {{ tournoi.date ? tournoi.date|date('Y-m-d') : '' }}</h3>
 
+   {% if tournoi.nombreEquipe != 0 %}
+       <a href="{{ path('app_tournoi_participer', {'idTournoi': tournoi.idTournoi}) }}">participer</a>
+  {% else %}
+  il n'a pas d' autre place.
+   {% endif %}
+
                                                             </div>
                                                         </li>
                                                                  <li>
