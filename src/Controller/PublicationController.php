@@ -11,8 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Form\PubType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\PublicationType;
-
-
+use App\Repository\PublicationRepository;
 
 class PublicationController extends AbstractController
 {
@@ -28,7 +27,6 @@ class PublicationController extends AbstractController
         $publications = $entityManager
             ->getRepository(Publication::class)
             ->findAll();
-
         return $this->render('pubb/index.html.twig', [
             'publications' => $publications,
         ]);
@@ -41,6 +39,7 @@ class PublicationController extends AbstractController
     {
         $publication = new Publication();
         $form = $this->createForm(PublicationType::class, $publication);
+        $publication->setDatePub(new \DateTime('now'));
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($publication);
@@ -170,9 +169,10 @@ class PublicationController extends AbstractController
     /**
      * @Route("/new", name="app_pubb_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, PublicationRepository $rp): Response
     {
         $publication = new Publication();
+        $publication->setDatePub(new \DateTime('now'));
         $form = $this->createForm(PublicationType::class, $publication);
         $form->handleRequest($request);
 
@@ -180,7 +180,7 @@ class PublicationController extends AbstractController
             $entityManager->persist($publication);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_pubb_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('commentaire', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('pubb/new.html.twig', [

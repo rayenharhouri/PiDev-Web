@@ -14,6 +14,535 @@
 
 		<!-- CSS here -->
         {% block css %}
+        
+
+
+
+
+
+<style>
+	/* =============================== CHATBOT ============================= */
+.nodeco {
+		background: none;
+		color: inherit;
+		border: none;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+	}
+	.nodeco:hover {
+		background: none;
+	color: #20c997;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
+	.nodeco:active {
+		background: none;
+	color: green;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
+.open-button {
+  
+ 
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+
+/* CSS */
+.open-button,
+.open-button:after {
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #20c997 5%);
+  border: 0;
+  color: #fff;
+   z-index: 1;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: fixed;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.open-button:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  
+  content: 'ALTERNATE TEXT';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #20c997 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.open-button:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .open-button,
+  .open-button:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #74245f;
+  z-index: 9;
+}
+/* Add styles to the form container */
+.form-container {
+  max-width: 420px;
+  padding: 10px;
+  background: rgba(207,102,180, 0.8);
+
+}
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: red;
+  outline: none;
+}
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #fdb819; 
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+} 
+ 
+.containe{
+	width : 400px ; 
+	height : 400px ; 
+	overflow : auto ; 
+	border : 1px solid #BF996B ; 
+}
+.bot {
+	background-image: linear-gradient(to bottom right, #F30DFF,#7006C7); 
+	border-radius : 15px ; 
+	padding : 4px ; 
+	width : 300px ;
+	color : white ;
+	margin : 2px ;
+	border-top-left-radius: 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.botSender {
+	background : #0D8BFB ;
+	border-radius : 10px ; 
+	padding : 4px 6px 4px 6px ; 
+	border : 2px solid black ; 
+	margin : 2px ; 
+	font-size: 15px; 
+ 	font-family : Mark\ Pro,sans-serif;
+	
+}
+.botSender:hover {
+	background : rgba(19, 173, 234, 1) ;
+	border-radius : 10px ; 
+	padding : 4px 6px 4px 6px ;  
+	border : 1px solid black ; 
+	margin : 2px ; 
+	font-size: 15px; 
+ 	font-family : Mark\ Pro,sans-serif;
+}
+.botText {	
+	margin : 2px ; 
+	color : black ;
+	font-size: 16px; 
+ 	font-family : Mark\ Pro,sans-serif; 
+}
+/* ============== CLIENT ================ */
+.client {
+	background-image: linear-gradient(to bottom right, #FDFCE9,#0B58E3); 
+	border-radius : 15px ; 
+	padding : 4px ; 
+	width : 300px ;
+	color : black ;
+	margin : 8px ; 
+	border-top-right-radius: 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+}
+.cancelButton {
+	padding : 0px 8px 0px 8px ;
+	border : 1px solid black ; 
+	background-color : red; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+	background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2); 
+}
+.cancelButton:hover {
+	padding : 0px 8px 0px 8px ;
+	border : 1px solid black ; 
+	background-color : red; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+	background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2); 
+}
+ 
+</style>
+
+<button class="open-button" onclick="openForm()">ChatBot</button>
+
+<div class="chat-popup" id="myForm">
+	<div action="/action_page.php" class="form-container">
+		<button class="nodeco cancelButton" onclick="closeForm()">
+			  -  
+		</button>
+
+		
+		<table style="width :60% ; ">
+			<tr>
+				<td valign="center" align="left"><img style="width : 26px ; height : 40px" src="https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG-HD-Image.png"></td>
+				<td valign="center">
+					<h4 >ELAAB CHATBOT</h4>
+				</td>
+				
+			</tr>
+		</table>
+
+
+		<label for="msg">
+			<b> </b>
+		</label>
+		<!--textarea placeholder="Type message.." name="msg" required></textarea-->
+
+		<div class="containe" id="chat">
+
+			<div class="bot">
+				<div class="botText">
+					Hello dear, how can we help you ?
+				</div>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="1" id="StoreLocator">Where are we located? </button>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="2" id="Products">How to publish a topic ?</button>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="3" id="EventPublish">How to Comment ?</button>		
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="4" id="TechNews">Want some News ?</button>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="5" id="Music">Try Our New QrMusic Generator 🎧🎧 </button>
+
+			</div>
+ 			
+ 			
+
+
+
+		</div>
+
+		<div style="height : 40px ; ">
+			 
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+	function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	}
+	function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	}
+	function botReply(value) {
+		if (value==1) {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+			var message = document.createElement("div");
+			message.classList.add('botText');
+			var text2 = document.getElementById("StoreLocator").innerHTML ; 
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+			// ======== bot =================
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+			var text = document.createTextNode("Find us here : ");
+			message.appendChild(text);
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Store Locator");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "https://www.google.com/maps/place/ESPRIT/@36.8992878,10.1893674,17z/data=!3m1!4b1!4m5!3m4!1s0x12e2cb7454c6ed51:0x683b3ab5565cd357!8m2!3d36.8992878!4d10.1893674";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+			
+		} else if (value=="2") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+			var message = document.createElement("div");
+			message.classList.add('botText');
+			var text2 = document.getElementById("Products").innerHTML ; 
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+			// ======== bot =================
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+			var text = document.createTextNode("Go to BlogDetails Click on Post Publication You want To try it now Click Below : ");
+			message.appendChild(text);
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Click Me");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "{{ path('app_pubb_new') }}";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+			
+ 
+		} else if (value=="3") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+			var message = document.createElement("div");
+			message.classList.add('botText');
+			var text2 = document.getElementById("EventPublish").innerHTML ; 
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+			// ======== bot =================
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+			var text = document.createTextNode("Go to BlogDetails Find the topic that you want to put ur comment on Then press on the icon of comment. Try it now ?");
+			message.appendChild(text);
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Click Me ");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "{{ path('commentaire') }}";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+		} else if (value=="4") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+			var message = document.createElement("div");
+			message.classList.add('botText');
+			var text2 = document.getElementById("TechNews").innerHTML ; 
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+			// ======== bot =================
+			const settings = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://tech-news3.p.rapidapi.com/venturebeat",
+				"method": "GET",
+				"headers": {
+					"x-rapidapi-host": "tech-news3.p.rapidapi.com",
+					"x-rapidapi-key": "0df9a64d4dmshef637b6555ab817p197c06jsn23b1172de7c8"
+				}
+			};
+			$.ajax(settings).done(function (response) {
+				var containe = document.createElement("div");
+				containe.classList.add('bot');
+				var message = document.createElement("div");
+				message.classList.add('botText'); 
+				let x = Math.floor((Math.random() * 20) + 1);
+				var text = document.createTextNode(response[x]['title']);
+				message.appendChild(text);
+	 
+				containe.appendChild(message);
+				var element = document.getElementById("chat");
+				element.appendChild(containe);
+			});
+			
+		} else if  (value=="5"){
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+			var message = document.createElement("div");
+			message.classList.add('botText');
+			var text2 = document.getElementById("Music").innerHTML ; 
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+			// ======== bot =================
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+			var text = document.createTextNode("We Developped a QrCode Genarator to Let you listen To your favorite Music 💓 Want To Try IT ? :        ");
+			message.appendChild(text);
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Click Me 🎧🎧 ");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "{{ path('homepage') }}";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+		}
+		
+	}
+</script>
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
@@ -26,6 +555,8 @@
         <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+
+        
         {% endblock css %}
     </head>
     <body>
@@ -58,15 +589,13 @@
                             <div class="menu-wrap">
                                 <nav class="menu-nav show">
                                     <div class="logo">
-                                        <a href="index-2.html"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
+                                        <a href="{{path('home')}}"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
                                     </div>
                                     <div class="navbar-wrap main-menu d-none d-lg-flex">
                                         <ul class="navigation">
-                                            <li class="menu-item-has-children"><a href="#">Home</a>
+                                            <li class="menu-item-has-children"><a href="{{path('home')}}">Home</a>
                                                 <ul class="sub-menu">
-                                                    <li class="active"><a href="index-2.html">Home One</a></li>
-                                                    <li><a href="index-3.html">Home Two</a></li>
-                                                    <li><a href="index-4.html">Home three</a></li>
+                                                    <li class="active"><a href="{{path('home')}}">Home One</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="about-us.html">About Us</a></li>
@@ -104,7 +633,7 @@
                             <div class="mobile-menu">
                                 <nav class="menu-box">
                                     <div class="close-btn"><i class="fas fa-times"></i></div>
-                                    <div class="nav-logo"><a href="index-2.html"><img src="assets/img/logo/logo.png" alt="" title=""></a>
+                                    <div class="nav-logo"><a href="{{path('home')}}"><img src="assets/img/logo/logo.png" alt="" title=""></a>
                                     </div>
                                     <div class="menu-outer">
                                         <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -158,7 +687,7 @@
                     <button><i class="far fa-window-close"></i></button>
                 </div>
                 <div class="logo-side mb-30">
-                    <a href="index-2.html"><img src="assets/img/logo/logo.png" alt="Logo"></a>
+                    <a href="{{path('home')}}"><img src="assets/img/logo/logo.png" alt="Logo"></a>
                 </div>
                 <div class="side-info mb-30">
                     <div class="contact-list mb-30">
@@ -204,7 +733,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <div class="f-logo">
-                                    <a href="index-2.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="{{path('home')}}"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-lg-9">

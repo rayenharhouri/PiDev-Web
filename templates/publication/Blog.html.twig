@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 <main>
+
             <!-- breadcrumb-area -->
             <section class="breadcrumb-area breadcrumb-bg breadcrumb-bg-two">
                 <div class="breadcrumb-overflow">
@@ -48,7 +50,7 @@
                                     <div class="blog-meta">
                                         <ul>
                                             <li>BY <a href="#">Rayen Harhouri</a></li>
-                                            <li><i class="far fa-clock"></i>{{ publication.datePub }}</li>
+                                            <li><i class="far fa-clock"></i>{{ publication.datePub ? publication.datePub|date('Y-m-d') : '' }}</li>
                                             <li><a href="#"><i class="far fa-comment"></i>{{ publication.nbreCommentaires }}</a></li>
                                             <li><i class="far fa-eye"></i>4,735 VIEWS</li>
                                         </ul>
@@ -171,4 +173,7 @@
             <!-- blog-area-end -->
 
         </main>
+
+
+        
 {% endblock %}

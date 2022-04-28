@@ -1,4 +1,4 @@
-{{ form_start(form) }}
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
 <section class="breadcrumb-area breadcrumb-bg breadcrumb-bg-two">
 	<div class="breadcrumb-overflow">
 		<div class="container">
@@ -31,15 +31,15 @@
 		<form action="#">
 			<div class="row">
 				<div class="col-md-12">
+					<div class="invalid-feedback"> {{ form_errors(form.topic)}}
+					</div>
 					<div class="form-grp"> {{ form_widget(form) }}
 					</div>
 				</div>
 			</div>
 			<button class="btn">{{ button_label|default('Save') }}</button>
 		</form>
+			<button class="btn" type="submit" onclick="location.href='{{ path('commentaire') }}'">BACK</button>
 	</div>
-	<div class="blog-next-prev mb-75" style="margin-left:40%;">
-		<a href="{{ path('app_pubb_index') }}">
-			<i class="fas fa-angle-double-left"></i>back To list</a>
-	</div>
+
 </div></section></div>{{ form_end(form) }}

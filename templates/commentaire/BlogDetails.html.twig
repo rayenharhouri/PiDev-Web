@@ -56,14 +56,15 @@
 									<div class="blog-meta">
 										<ul>
 											<li>
-												<i class="far fa-clock">{{ pub.datePub }}</i>
+												<i class="far fa-clock">{{ pub.datePub ? pub.datePub|date('Y-m-d') : '' }}</i>
 											</li>
 											<li>
 												<a href="{{ path('app_comment_new' , {'id': pub.id}) }}">
 													<i class="far fa-comment"></i> {{ pub.nbreCommentaires }}</a>
 											</li>
 											<li>
-												<i class="far fa-eye"></i>4,735 VIEWS</li>
+											<a href="{{ path('app_pubb_edit' , {'id': pub.id}) }}">
+												<i class="fa fa-eye"></i></i></li>
 										</ul>
 									</div>
 
@@ -127,7 +128,7 @@
 													<a href="blog-details.html">online games includi shooting game</a>
 												</h5>
 												<span class="date">
-													<i class="far fa-clock"></i>march 10, 2022</span>
+													<i class="far fa-clock"></i>march 7, 2022</span>
 											</div>
 										</li>
 										<li>
@@ -139,7 +140,7 @@
 													<a href="blog-details.html">Best Offline Games on Android Don't It.</a>
 												</h5>
 												<span class="date">
-													<i class="far fa-clock"></i>march 10, 2022</span>
+													<i class="far fa-clock"></i>march 7, 2022</span>
 											</div>
 										</li>
 										<li>

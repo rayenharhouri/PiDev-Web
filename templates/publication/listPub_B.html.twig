@@ -79,7 +79,7 @@
 								<td>{{ publication.topic }}</td>
 								<td>{{ publication.nbreCommentaires }}</td>
 								<td>{{ publication.reactions }}</td>
-								<td>{{ publication.datePub }}</td>
+								<td>{{ publication.datePub ? publication.datePub|date('Y-m-d') : '' }}</td>
 								<td>
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<div>

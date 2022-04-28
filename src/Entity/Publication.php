@@ -31,9 +31,9 @@ class Publication
     private $idU;
 
     /**
-     * @var string|null
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_pub", type="string", length=30, nullable=true)
+     * @ORM\Column(name="date_pub", type="date", length=30, nullable=true)
      */
     private $datePub;
 
@@ -93,12 +93,12 @@ class Publication
         return $this;
     }
 
-    public function getDatePub(): ?string
+    public function getDatePub(): ?\DateTimeInterface
     {
         return $this->datePub;
     }
 
-    public function setDatePub(?string $datePub): self
+    public function setDatePub(\DateTimeInterface $datePub): self
     {
         $this->datePub = $datePub;
 
