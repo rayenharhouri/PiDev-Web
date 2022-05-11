@@ -1,0 +1,323 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from themepixer.com/demo/html/halda/halda/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Apr 2022 14:11:54 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        {% block title %}
+            Halda - eSports Gaming HTML5 Template
+        {% endblock %}
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets1/img/favicon.png')}}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('assets1/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/odometer.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/slick.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/default.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/responsive.css')}}">
+</head>
+<body>
+
+<!-- preloader -->
+<div id="preloader">
+    <div id="loading-center">
+        <div class="loader">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader-end -->
+
+<!-- Scroll-top -->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <i class="fas fa-angle-up"></i>
+</button>
+<!-- Scroll-top-end-->
+
+<!-- header-area -->
+<header>
+    <div id="header-top-fixed"></div>
+    <div id="sticky-header" class="menu-area">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                    <div class="menu-wrap">
+                        <nav class="menu-nav show">
+                            <div class="logo">
+                                <a href="index-2.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                            <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                <ul class="navigation">
+                                    <li class="menu-item-has-children"><a href="#">Home</a></li>
+                                    <li><a href="{{ path('indexFront') }}">Produits</a></li>
+                                </ul>
+                            </div>
+                            <div class="header-action">
+                                <ul>
+                                    <li class="header-search">
+                                        <a href="#"><i class="fas fa-search"></i></a>
+                                    </li>
+                                    <li class="header-sine">
+                                        <a href="contact.html"><i class="far fa-edit"></i>log-in</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- Mobile Menu  -->
+                    <div class="mobile-menu">
+                        <nav class="menu-box">
+                            <div class="close-btn"><i class="fas fa-times"></i></div>
+                            <div class="nav-logo"><a href="index-2.html"><img src="assets/img/logo/logo.png" alt="" title=""></a>
+                            </div>
+                            <div class="menu-outer">
+                                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                            </div>
+                            <div class="social-links">
+                                <ul class="clearfix">
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="menu-backdrop"></div>
+                    <!-- End Mobile Menu -->
+                </div>
+            </div>
+        </div>
+        <div class="header-icon">
+            <a href="#" class="menu-tigger"><img src="assets/img/icon/hader_icon.png" alt=""></a>
+        </div>
+    </div>
+    <!-- header-search -->
+    <div class="search-popup-wrap" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="search-close">
+            <span><i class="fas fa-times"></i></span>
+        </div>
+        <div class="search-wrap text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">... Search Here ...</h2>
+                        <div class="search-form">
+                            <form action="#">
+                                <input type="text" name="search" placeholder="Type keywords here">
+                                <button class="search-btn"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header-search-end -->
+
+    <!-- offCanvas-menu -->
+    <div class="extra-info">
+        <div class="close-icon menu-close">
+            <button><i class="far fa-window-close"></i></button>
+        </div>
+        <div class="logo-side mb-30">
+            <a href="index-2.html"><img src="assets/img/logo/logo.png" alt="Logo"></a>
+        </div>
+        <div class="side-info mb-30">
+            <div class="contact-list mb-30">
+                <h4>Office Address</h4>
+                <p>123/A, Miranda City Likaoli <br> Prikano, Dope</p>
+            </div>
+            <div class="contact-list mb-30">
+                <h4>Phone Number</h4>
+                <p>+0989 7876 9865 9</p>
+                <p>+(090) 8765 86543 85</p>
+            </div>
+            <div class="contact-list mb-30">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+                <p>example.mail@hum.com</p>
+            </div>
+        </div>
+        <ul class="side-instagram">
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta01.jpg" alt=""></a></li>
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta02.jpg" alt=""></a></li>
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta03.jpg" alt=""></a></li>
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta04.jpg" alt=""></a></li>
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta05.jpg" alt=""></a></li>
+            <li><a href="our-squad.html"><img src="assets/img/images/sd_insta06.jpg" alt=""></a></li>
+        </ul>
+        <div class="social-icon-right mt-30">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="offcanvas-overly"></div>
+    <!-- offCanvas-menu-end -->
+
+</header>
+<!-- header-area-end -->
+
+
+<!-- main-area -->
+<main>
+
+    <section class="breadcrumb-area breadcrumb-bg">
+        <div class="breadcrumb-overflow">
+            <div class="container">
+                <div class="breadcrumb-inner">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="breadcrumb-content">
+                                <h2 class="title">our shop</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">our shop</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block">
+                            <div class="breadcrumb-img text-center text-lg-end">
+                                <img src="{{ asset('assets1/img/images/breadcrumb_img03.png')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breadcrumb-shape shape-1 wow slideInLeft" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape01.png" alt=""></div>
+            <div class="breadcrumb-shape shape-2 wow slideInRight" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape02.png" alt=""></div>
+        </div>
+    </section>
+    {% block body %}
+    {% endblock %}
+
+</main>
+<!-- main-area-end -->
+
+
+<!-- footer-area -->
+<footer>
+    <div class="footer-top-wrap">
+        <div class="container">
+            <div class="footer-menu-wrap">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <div class="f-logo">
+                            <a href="index-2.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="footer-menu">
+                            <nav>
+                                <ul class="navigation">
+                                    <li><a href="index-2.html">HOME</a></li>
+                                    <li><a href="about-us.html">ABOUT US</a></li>
+                                    <li><a href="tournaments.html">TOURNAMENT</a></li>
+                                    <li><a href="blog.html">BLOG</a></li>
+                                    <li><a href="contact.html">PAGES</a></li>
+                                    <li><a href="contact.html">CONTACT</a></li>
+                                </ul>
+                                <div class="footer-search">
+                                    <form action="#">
+                                        <input type="text" placeholder="Find Here Now">
+                                        <button><i class="fas fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-quick-link-wrap">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-8">
+                        <div class="quick-link-list">
+                            <ul>
+                                <li><a href="contact.html">FAQ</a></li>
+                                <li><a href="contact.html">Help Center</a></li>
+                                <li><a href="contact.html">Terms of Use</a></li>
+                                <li><a href="contact.html">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-4">
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright-text">
+                        <p>Copyright © 2022 All Rights Reserved By <span>halda</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="copyright-img text-center text-md-end">
+                        <img src="assets/img/images/cart_img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer-area-end -->
+
+
+
+
+
+
+<!-- JS here -->
+{% block js %}{% endblock %}
+<script src="{{ asset('assets1/js/vendor/jquery-3.6.0.min.js')}}"></script>
+<script src="{{ asset('assets1/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.odometer.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.countdown.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.ba-throttle-debounce.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.knob.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery-countdowngampang.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery-ui.min.js')}}"></script>
+<script src="{{ asset('assets1/js/jquery.appear.js')}}"></script>
+<script src="{{ asset('assets1/js/parallax.js')}}"></script>
+<script src="{{ asset('assets1/js/slick.min.js')}}"></script>
+<script src="{{ asset('assets1/js/wow.min.js')}}"></script>
+<script src="{{ asset('assets1/js/main.js')}}"></script>
+</body>
+
+</html>

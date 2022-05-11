@@ -9,7 +9,10 @@ use App\Form\EditUserType;
 use App\Form\EquipeType;
 use App\Repository\EquipeRepository;
 use App\Repository\UtilisateurRepository;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\UtilisateurType;
@@ -22,7 +25,7 @@ use Symfony\Component\Mime\Address;
 
 
 /**
- * @Route("/admin", name="admin_")
+ * @Route("/admine", name="admin_")
  */
 class AdminController extends AbstractController
 {
@@ -51,8 +54,80 @@ class AdminController extends AbstractController
      *
      * @Route("/utilisateurs", name="utilisateurs")
      */
-    public function clientList(UtilisateurRepository $user){
+    public function clientList(UtilisateurRepository $user,Request $request){
+        $form2 =$this->createFormBuilder(null)
+            ->add('Tri', ChoiceType::class, [
+                'choices'  => [
+                    'Tri Par Nom' => "u.nom",
+                    'Tri Par Prenom' => "u.prenom",
+                    'Tri Par Equipe' => "u.equipe",
+                    'Tri Par ID' => "u.id"
+                ],
+            ])
+            ->add('Trier', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+            ->getForm();
+        $form =$this->createFormBuilder(null)
+            ->add('S' , TextType::class)
+            ->add('Recherche', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+            ->getForm();
+        $form2->handleRequest($request);
+        if($form2->isSubmitted() && $form2->isValid()){
+            $var = $form2->get('Tri')->getData();
+            return $this->render("admin/utilisateurs.html.twig", [
+                'triform' => $form2->createView(),
+                'searchform' => $form->createView(),
+                'user' => $user->tri($var)
+            ]);
+
+        }
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $var = $form->get('S')->getData();
+            return $this->render("admin/utilisateurs.html.twig", [
+                'searchform' => $form->createView(),
+                'user' => $user->search($var),
+                'triform' => $form2->createView(),
+
+
+            ]);
+
+        }
+        $form2 =$this->createFormBuilder(null)
+            ->add('Tri', ChoiceType::class, [
+                'choices'  => [
+                    'Tri Par Nom' => "u.nom",
+                    'Tri Par Prenom' => "u.prenom",
+                    'Tri Par Equipe' => "u.equipe",
+                    'Tri Par ID' => "u.id"
+                ],
+            ])
+            ->add('Trier', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+            ->getForm();
+        $form2->handleRequest($request);
+        if($form2->isSubmitted() && $form2->isValid()){
+            $var = $form2->get('Tri')->getData();
+            return $this->render("admin/utilisateurs.html.twig", [
+                'triform' => $form2->createView(),
+                'searchform' => $form->createView(),
+                'user' => $user->tri($var)
+            ]);
+
+        }
         return $this->render("admin/utilisateurs.html.twig", [
+            'searchform' => $form->createView(),
+            'triform' => $form2->createView(),
             'user' => $user->findAll()
         ]);
     }
@@ -77,7 +152,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            /*$file = $Utilisateur->getImage();
+            $file = $Utilisateur->getImage();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             try {
                 $file->move(
@@ -87,7 +162,7 @@ class AdminController extends AbstractController
             } catch (FileException $e){
 
             }
-            $Utilisateur->setImage($fileName);*/
+            $Utilisateur->setImage($fileName);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($Utilisateur);
             $entityManager->flush();
@@ -181,6 +256,19 @@ class AdminController extends AbstractController
      * @Route("/equipe/supprimer/{id}", name="supprimer_equipe")
      */
     public function suppEquip($id, EquipeRepository $repository ){
+        $equipe=$repository->find($id);
+        $entityManager=$this->getDoctrine()->getManager();
+        $entityManager->remove($equipe);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('admin_equipes');
+    }
+
+    /**
+     * Recherche Utilisateur
+     * @Route("/utilisateur/search", name="recherche_util")
+     */
+    public function recherche($id, EquipeRepository $repository ){
         $equipe=$repository->find($id);
         $entityManager=$this->getDoctrine()->getManager();
         $entityManager->remove($equipe);

@@ -3,6 +3,8 @@
 
 <!-- Mirrored from themepixer.com/demo/html/halda/halda/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Apr 2022 14:12:06 GMT -->
 <head>
+    {% block head %}
+    {% endblock %}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Halda - eSports Gaming HTML5 Template</title>
@@ -62,41 +64,32 @@
                             </div>
                             <div class="navbar-wrap main-menu d-none d-lg-flex">
                                 <ul class="navigation">
-                                    <li class="menu-item-has-children"><a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index-2.html">Home One</a></li>
-                                            <li><a href="index-3.html">Home Two</a></li>
-                                            <li><a href="index-4.html">Home three</a></li>
-                                        </ul>
+                                    <li class="menu-item-has-children active"><a href="{{ path('acceuil') }}">Acceiul</a>
+
                                     </li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="tournaments.html">Tournament</a></li>
-                                    <li class="menu-item-has-children"><a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Our Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
+                                    <li><a href="{{ path('template') }}">Quiz</a>
+                                       {# <ul class="sub-menu">
+                                            <li><a href="{{ path('quizs_index') }}">Quiz</a></li>
+                                            <li><a href="{{ path('template') }}">Questions</a></li>
+                                        </ul>#}
                                     </li>
-                                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="our-squad.html">Our Squad</a></li>
-                                            <li><a href="match-single.html">Match Single</a></li>
-                                            <li><a href="shop.html">Our Shop</a></li>
-                                            <li><a href="shop-details.html">Shop Details</a></li>
-                                        </ul>
+                                    {#{{ path('') }}#}
+                                    <li><a href="{{ path('app_tournoi_index_user') }}">Tournoi</a></li>
+                                    <li><a href="{{ path('app_salle_jeu_index_user') }}">Salle de Jeu</a></li>
+                                    <li class="menu-item-has-children"><a href="{{ path('app_pubb_index') }}">Blog</a>
                                     </li>
-                                    <li class="active"><a href="contact.html">contact</a></li>
+                                    <li class="menu-item-has-children"><a href="{{ path('app_produit_front') }}">Produit</a>
+
+                                    </li>
+                                    <li class=""><a href="{{ path('commande_new') }}">Commande</a></li>
                                 </ul>
                             </div>
                             <div class="header-action">
                                 <ul>
-                                    <li class="header-search">
-                                        <a href="#"><i class="fas fa-search"></i></a>
-                                    </li>
                                     {% if is_granted ('ROLE_USER') %}
                                         <li class="header-sine">
-                                            <a href="{{ path('utilisateur_profil' , {'id' : app.user.id}     ) }}"><i class="far fa-user"></i>Profil</a>
-                                        </li>
+                                             <a href="{{ path('utilisateur_profil' , {'id' : app.user.id}     ) }}"><i class="far fa-user"></i>Profil</a>
+                                            <a href="{{ path('app_logout') }}"><i class="fa fa-user-times"></i>Deco</a>                                        </li>
                                     {% else %}
                                         <li class="header-sine">
                                             <a href="{{ path('app_login') }}"><i class="far fa-edit"></i>log-in</a>

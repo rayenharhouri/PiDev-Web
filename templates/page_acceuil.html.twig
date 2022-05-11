@@ -1,0 +1,729 @@
+<!doctype html>
+<html class="no-js" lang="">
+    
+<!-- Mirrored from themepixer.com/demo/html/halda/halda/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Apr 2022 14:10:55 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Halda - eSports Gaming HTML5 Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+		<!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/jquery-ui.css">
+        <link rel="stylesheet" href="assets/css/odometer.css">
+        <link rel="stylesheet" href="assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+    </head>
+    <body>
+
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="loading-center">
+                <div class="loader">
+                    <div class="loader-outter"></div>
+                    <div class="loader-inner"></div>
+                </div>
+            </div>
+        </div>
+        <!-- preloader-end -->
+
+		<!-- Scroll-top -->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-angle-up"></i>
+        </button>
+        <!-- Scroll-top-end-->
+
+        <!-- header-area -->
+        <header>
+            <div id="header-top-fixed"></div>
+            <div id="sticky-header" class="menu-area">
+                <div class="container custom-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                            <div class="menu-wrap">
+                                <nav class="menu-nav show">
+                                    <div class="logo">
+                                        <a href="index-2.html"><img src="assets-front/img/logo/logo.png" alt=""></a>
+                                    </div>
+                                    <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                        <ul class="navigation">
+                                            <li class="menu-item-has-children active"><a href="{{ path('acceuil') }}">Acceiul</a>
+
+                                            </li>
+                                            <li><a href="{{ path('template') }}">Quiz</a>
+                                                {# <ul class="sub-menu">
+                                            <li><a href="{{ path('quizs_index') }}">Quiz</a></li>
+                                            <li><a href="{{ path('template') }}">Questions</a></li>
+                                        </ul>#}
+                                            </li>
+                                            {#{{ path('') }}#}
+                                            <li><a href="{{ path('app_tournoi_index_user') }}">Tournoi</a></li>
+                                            <li><a href="{{ path('app_salle_jeu_index_user') }}">Salle de Jeu</a></li>
+                                            <li class="menu-item-has-children"><a href="{{ path('app_pubb_index') }}">Blog</a>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="{{ path('app_produit_front') }}">Produit</a>
+
+                                            </li>
+                                            <li class=""><a href="{{ path('commande_new') }}">Commande</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="header-action">
+                                        <ul>
+                                            {% if is_granted ('ROLE_USER') %}
+                                                <li class="header-sine">
+                                                    <a href="{{ path('utilisateur_profil' , {'id' : app.user.id}     ) }}"><i class="far fa-user"></i>Profil</a>
+                                                    <a href="{{ path('app_logout') }}"><i class="fa fa-user-times"></i>Deco</a>                                        </li>
+                                            {% else %}
+                                                <li class="header-sine">
+                                                    <a href="{{ path('app_login') }}"><i class="far fa-edit"></i>log-in</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!-- Mobile Menu  -->
+                            <div class="mobile-menu">
+                                <nav class="menu-box">
+                                    <div class="close-btn"><i class="fas fa-times"></i></div>
+                                    <div class="nav-logo"><a href="index-2.html"><img src="assets/img/logo/logo.png" alt="" title=""></a>
+                                    </div>
+                                    <div class="menu-outer">
+                                        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                                    </div>
+                                    <div class="social-links">
+                                        <ul class="clearfix">
+                                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="menu-backdrop"></div>
+                            <!-- End Mobile Menu -->
+                        </div>
+                    </div>
+                </div>
+                <div class="header-icon">
+                    <a href="#" class="menu-tigger"><img src="assets/img/icon/hader_icon.png" alt=""></a>
+                </div>
+            </div>
+            <!-- header-search -->
+            <div class="search-popup-wrap" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="search-close">
+                    <span><i class="fas fa-times"></i></span>
+                </div>
+                <div class="search-wrap text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="title">... Search Here ...</h2>
+                                <div class="search-form">
+                                    <form action="#">
+                                        <input type="text" name="search" placeholder="Type keywords here">
+                                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-search-end -->
+
+            <!-- offCanvas-menu -->
+            <div class="extra-info">
+                <div class="close-icon menu-close">
+                    <button><i class="far fa-window-close"></i></button>
+                </div>
+                <div class="logo-side mb-30">
+                    <a href="index-2.html"><img src="assets/img/logo/logo.png" alt="Logo"></a>
+                </div>
+                <div class="side-info mb-30">
+                    <div class="contact-list mb-30">
+                        <h4>Office Address</h4>
+                        <p>123/A, Miranda City Likaoli <br> Prikano, Dope</p>
+                    </div>
+                    <div class="contact-list mb-30">
+                        <h4>Phone Number</h4>
+                        <p>+0989 7876 9865 9</p>
+                        <p>+(090) 8765 86543 85</p>
+                    </div>
+                    <div class="contact-list mb-30">
+                        <h4>Email Address</h4>
+                        <p>info@example.com</p>
+                        <p>example.mail@hum.com</p>
+                    </div>
+                </div>
+                <ul class="side-instagram">
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta01.jpg" alt=""></a></li>
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta02.jpg" alt=""></a></li>
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta03.jpg" alt=""></a></li>
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta04.jpg" alt=""></a></li>
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta05.jpg" alt=""></a></li>
+                    <li><a href="our-squad.html"><img src="assets/img/images/sd_insta06.jpg" alt=""></a></li>
+                </ul>
+                <div class="social-icon-right mt-30">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="offcanvas-overly"></div>
+            <!-- offCanvas-menu-end -->
+
+        </header>
+        <!-- header-area-end -->
+
+
+
+        <!-- main-area -->
+        <main>
+
+            <!-- banner-area -->
+            <div class="banner-area-three banner-three-bg">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-6 col-md-9 order-0 order-lg-2">
+                            <div class="banner-img-wrap">
+                                <div class="banner-img-item">
+                                    <img src="assets/img/slider/slider_shape01.png" alt class="shape">
+                                    <img src="assets/img/slider/slider_img01.png" alt class="main-img">
+                                </div>
+                                <div class="banner-img-item">
+                                    <img src="assets/img/slider/slider_shape02.png" alt class="shape">
+                                    <img src="assets/img/slider/slider_img02.png" alt class="main-img">
+                                </div>
+                                <div class="banner-img-item">
+                                    <img src="assets/img/slider/slider_shape03.png" alt class="shape">
+                                    <img src="assets/img/slider/slider_img03.png" alt class="main-img">
+                                </div>
+                                <div class="banner-img-item">
+                                    <img src="assets/img/slider/slider_shape04.png" alt class="shape">
+                                    <img src="assets/img/slider/slider_img04.png" alt class="main-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="banner-content">
+                                <h4 class="small-title wow fadeInUp" data-wow-delay=".2s">Design Experience</h4>
+                                <h2 class="title wow fadeInUp" data-wow-delay=".4s"><i class="fas fa-globe"></i>Global Steam <br> With Our <span>Community</span></h2>
+                                <p class="wow fadeInUp" data-wow-delay=".6s">You can download a copy of the data saved in your Google Account to use it with another service.</p>
+                                <div class="banner-btn wow fadeInUp" data-wow-delay=".8s">
+                                    <a href="contact.html" class="btn">Join with us <i class="fas fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner-area-end -->
+
+            <!-- countdown-area -->
+            <section class="countdown-area-two countdown-bg">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="section-title title-style-three text-center mb-60">
+                                <h2 class="title">Time Until Pre-Sale</h2>
+                                <span>Upcoming Countdown</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="countdown-wrap text-center">
+                                <div id="countdown-gampang"></div>
+                                <img src="assets/img/images/countdown_img.png" alt="">
+                                <p>COLLECTIONS love to online gaming platform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- counter-area-end -->
+
+            <!-- team-area -->
+            <section class="team-area-two">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="section-title">
+                                <div class="section-title title-style-two text-center mb-60">
+                                    <h2 class="title">Active Team Members</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team-thumb mb-30">
+                                <img src="assets/img/team/team_img01.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team-thumb mb-30">
+                                <img src="assets/img/team/team_img02.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team-thumb mb-30">
+                                <img src="assets/img/team/team_img03.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team-thumb mb-30">
+                                <img src="assets/img/team/team_img04.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="counter-area-two">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-20">
+                                <div class="counter-item-two text-center">
+                                    <div class="counter-content">
+                                        <h2 class="count"><span class="odometer" data-count="7878"></span>K</h2>
+                                        <p>Unique Design</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-20">
+                                <div class="counter-item-two text-center">
+                                    <div class="counter-content">
+                                        <h2 class="count"><span class="odometer" data-count="15"></span> +</h2>
+                                        <p>Years Of Experience</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-20">
+                                <div class="counter-item-two text-center">
+                                    <div class="counter-content">
+                                        <h2 class="count"><span class="odometer" data-count=".45"></span> euro</h2>
+                                        <span>Last Year</span>
+                                        <p>Winning Price</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-20">
+                                <div class="counter-item-two text-center">
+                                    <div class="counter-content">
+                                        <h2 class="count"><span class="odometer" data-count=".55"></span> euro</h2>
+                                        <span>30th Dec</span>
+                                        <p>Public Sale</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-20">
+                                <div class="counter-item-two text-center">
+                                    <div class="counter-content">
+                                        <p>Creative and <br> online game Pictionary or office Halda</p>
+                                        <i class="far fa-copyright"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- team-area-end -->
+
+            <!-- roadmap-area -->
+            <section class="roadmap-area">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-xl-end">
+                        <div class="col-12">
+                            <div class="section-title title-style-three">
+                                <h2 class="title">Roadmap</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-11">
+                            <div class="roadmap-timeline-wrap">
+                                <ul>
+                                    <li>
+                                        <div class="sold-percentage">
+                                            <h2 class="title">10% Sold</h2>
+                                        </div>
+                                        <div class="timeline-content wow fadeInRight" data-wow-delay=".2s">
+                                            <div class="image">
+                                                <img src="assets/img/images/timeline_img01.png" alt="">
+                                            </div>
+                                            <p>We’re gaming is not limited entertainment and hobby, it has become a good career option for all those.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sold-percentage">
+                                            <h2 class="title">20% Sold</h2>
+                                        </div>
+                                        <div class="timeline-content wow fadeInRight" data-wow-delay=".4s">
+                                            <div class="sold-img">
+                                                <img src="assets/img/images/timeline_img02.png" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sold-percentage">
+                                            <h2 class="title">30% Sold</h2>
+                                        </div>
+                                        <div class="timeline-content wow fadeInRight" data-wow-delay=".2s">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            30% Sold
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                                        data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <h5 class="title">We finally moved out of Uncle Biff’s basement.
+                                                                Release of Uncle Biff’s photo.</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingTwo">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            DEVELOPMENT LEAD Sold
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                                        data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <h5 class="title">We finally moved out of Uncle Biff’s basement.
+                                                                Release of Uncle Biff’s photo.</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingThree">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            COMMUNITY LEAD
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                                        data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <h5 class="title">We finally moved out of Uncle Biff’s basement.
+                                                                Release of Uncle Biff’s photo.</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingFour">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                            PROJECT LEAD 30% Sold
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                                        data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <h5 class="title">We finally moved out of Uncle Biff’s basement.
+                                                            Release of Uncle Biff’s photo.</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="timeline-bottom-image wow fadeInUp" data-wow-delay=".2s">
+                                <img src="assets/img/images/timeline_bottom_img.jpg" alt="" class="main-img">
+                                <img src="assets/img/images/timeline_shape.png" alt="" class="shape">
+                                <a href="contact.html" class="btn">join with us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- roadmap-area-end -->
+
+            <!-- stem-area -->
+            <section class="stem-area stem-bg">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <div class="stem-content">
+                                <div class="stem-icon">
+                                    <a href="https://www.twitch.tv/videos/1261623067" target="_blank"><i class="far fa-play-circle"></i></a>
+                                </div>
+                                <h2 class="title">Online Perfect Stem</h2>
+                                <span>the Season 8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- stem-area-end -->
+
+            <!-- shop-area -->
+            <section class="shop-area pt-110 pb-60">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="section-title title-style-two text-center mb-70">
+                                <h2 class="title">check our gears</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                            <div class="shop-item mb-60">
+                                <div class="shop-thumb">
+                                    <img src="assets/img/shop/shop_wrap_img.png" alt class="shape">
+                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img01.png" alt class="shop-img"></a>
+                                    <div class="shop-date">
+                                        <span>in 4 days</span>
+                                    </div>
+                                    <div class="shop-share">
+                                        <a href="shop-details.html"><i class="fas fa-share-alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="shop-content">
+                                    <div class="shop-content-top">
+                                        <div class="shop-title">
+                                            <h5 class="title"><a href="shop-details.html">HEADPHONES</a></h5>
+                                            <p>E-SPORTS</p>
+                                        </div>
+                                        <div class="price">
+                                            <span>$18</span>
+                                        </div>
+                                    </div>
+                                    <div class="shop-content-bottom">
+                                        <div class="shop-btn">
+                                            <a href="shop-details.html" class="btn"><i class="fas fa-plus"></i>add to cart</a>
+                                        </div>
+                                        <div class="shop-wishlist">
+                                            <a href="shop-details.html"><i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                            <div class="shop-item mb-60">
+                                <div class="shop-thumb">
+                                    <img src="assets/img/shop/shop_wrap_img.png" alt class="shape">
+                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img02.png" alt class="shop-img"></a>
+                                    <div class="shop-date">
+                                        <span>in 4 days</span>
+                                    </div>
+                                    <div class="shop-share">
+                                        <a href="shop-details.html"><i class="fas fa-share-alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="shop-content">
+                                    <div class="shop-content-top">
+                                        <div class="shop-title">
+                                            <h5 class="title"><a href="shop-details.html">controller</a></h5>
+                                            <p>E-SPORTS</p>
+                                        </div>
+                                        <div class="price">
+                                            <span>$29</span>
+                                        </div>
+                                    </div>
+                                    <div class="shop-content-bottom">
+                                        <div class="shop-btn">
+                                            <a href="shop-details.html" class="btn"><i class="fas fa-plus"></i>add to cart</a>
+                                        </div>
+                                        <div class="shop-wishlist">
+                                            <a href="shop-details.html"><i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                            <div class="shop-item mb-60">
+                                <div class="shop-thumb">
+                                    <img src="assets/img/shop/shop_wrap_img.png" alt class="shape">
+                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img03.png" alt class="shop-img"></a>
+                                    <div class="shop-date">
+                                        <span>in 4 days</span>
+                                    </div>
+                                    <div class="shop-share">
+                                        <a href="shop-details.html"><i class="fas fa-share-alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="shop-content">
+                                    <div class="shop-content-top">
+                                        <div class="shop-title">
+                                            <h5 class="title"><a href="shop-details.html">gaming mask</a></h5>
+                                            <p>E-SPORTS</p>
+                                        </div>
+                                        <div class="price">
+                                            <span>$45</span>
+                                        </div>
+                                    </div>
+                                    <div class="shop-content-bottom">
+                                        <div class="shop-btn">
+                                            <a href="shop-details.html" class="btn"><i class="fas fa-plus"></i>add to cart</a>
+                                        </div>
+                                        <div class="shop-wishlist">
+                                            <a href="shop-details.html"><i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- shop-area-end -->
+
+            <!-- newsletter-area -->
+            <section class="newsletter-area newsletter-area-bg pb-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="newsletter-wrap">
+                                <div class="newsletter-content">
+                                    <div class="newsletter-icon">
+                                        <img src="assets/img/icon/newsletter_icon.png" alt="">
+                                    </div>
+                                    <div class="newsletter-title">
+                                        <h2 class="title">SUBSCRIBE TO OUR NEWSLETTER</h2>
+                                    </div>
+                                </div>
+                                <div class="newsletter-form">
+                                    <form action="#">
+                                        <input type="email" placeholder="Your Email Address">
+                                        <button class="btn"><i class="fas fa-plus"></i>add to cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- newsletter-area-end -->
+
+        </main>
+        <!-- main-area-end -->
+
+        <!-- footer-area -->
+        <footer>
+            <div class="footer-top-wrap">
+                <div class="container">
+                    <div class="footer-menu-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3">
+                                <div class="f-logo">
+                                    <a href="index-4.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="footer-menu">
+                                    <nav>
+                                        <ul class="navigation">
+                                            <li><a href="index-2.html">HOME</a></li>
+                                            <li><a href="about-us.html">ABOUT US</a></li>
+                                            <li><a href="tournaments.html">TOURNAMENT</a></li>
+                                            <li><a href="blog.html">BLOG</a></li>
+                                            <li><a href="contact.html">PAGES</a></li>
+                                            <li><a href="contact.html">CONTACT</a></li>
+                                        </ul>
+                                        <div class="footer-search">
+                                            <form action="#">
+                                                <input type="text" placeholder="Find Here Now">
+                                                <button><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-quick-link-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 col-md-8">
+                                <div class="quick-link-list">
+                                    <ul>
+                                        <li><a href="contact.html">FAQ</a></li>
+                                        <li><a href="contact.html">Help Center</a></li>
+                                        <li><a href="contact.html">Terms of Use</a></li>
+                                        <li><a href="contact.html">Privacy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-4">
+                                <div class="footer-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="copyright-text">
+                                <p>Copyright © 2022 All Rights Reserved By <span>halda</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="copyright-img text-center text-md-end">
+                                <img src="assets/img/images/cart_img.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer-area-end -->
+
+
+
+
+
+		<!-- JS here -->
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/jquery.odometer.min.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="assets/js/jquery.countdown.min.js"></script>
+        <script src="assets/js/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="assets/js/jquery.knob.min.js"></script>
+        <script src="assets/js/jquery-countdowngampang.min.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <script src="assets/js/jquery.appear.js"></script>
+        <script src="assets/js/parallax.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+
+<!-- Mirrored from themepixer.com/demo/html/halda/halda/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Apr 2022 14:11:10 GMT -->
+</html>

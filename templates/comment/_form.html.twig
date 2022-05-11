@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+<section class="breadcrumb-area breadcrumb-bg breadcrumb-bg-two">
+	<div class="breadcrumb-overflow">
+		<div class="container">
+			<div class="breadcrumb-inner">
+				<div class="row align-items-center">
+					<div class="col-md-6">
+						<div class="breadcrumb-content">
+							<h2 class="title">Your feed means a lot to us &#10084;&#65039;
+							</h2>
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a href="index-2.html">Blog</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">Details</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+					<div class="col-md-6 d-none d-md-block"></div>
+				</div>
+			</div>
+		</div>
+		<div class="breadcrumb-shape shape-1 wow slideInLeft" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape01.png" alt=""></div>
+		<div class="breadcrumb-shape shape-2 wow slideInRight" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape02.png" alt=""></div>
+	</div>
+</section>
+<section class="blog-details-area black-bg">
+	<div class="comment-reply-box">
+		<form action="#">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-grp"> {{ form_widget(form,{'attr': {'novalidate': 'novalidate'}}) }}
+					</div>
+				</div>
+			</div>
+			<button class="btn">{{ button_label|default('Save') }}</button>
+		</form>
+		<button class="btn" type="submit" onclick="location.href='{{ path('commentaire') }}'">BACK</button>
+</section>
+
+</div>{{ form_end(form) }}

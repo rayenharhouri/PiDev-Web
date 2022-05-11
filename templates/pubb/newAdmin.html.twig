@@ -1,0 +1,27 @@
+{% extends 'base-back.html.twig' %}
+
+
+{% block body %}
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<div style=" justify-content: space-between;;margin-left:30%;margin-top:5%;padding: 10px 0;">
+
+		
+		<div class="col-md-6" style="padding: 10px 0;">
+			<label for="validationCustom03" class="form-label">Topic &#128140;</label>
+			{{form_widget(form.topic,{'attr':{'class':'form-control'}})}}
+			<div class="form_error">
+				{{ form_errors(form.topic)}}
+			</div>
+		</div>
+		<div class="col-md-3" style="padding: 10px 0;">
+			<label for="validationCustom05" class="form-label">ID USER</label>
+			{{form_widget(form.idU,{'attr':{'class':'form-control'}})}}
+			
+		</div>
+		<div class="col-12" style="padding: 10px 0;">
+			<button class="btn btn-primary w-md">{{ button_label|default('Save') }}</button>
+			 {{ form_end(form) }}
+		</div>
+	
+</div>
+{% endblock %}

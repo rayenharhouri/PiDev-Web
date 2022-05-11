@@ -1,0 +1,19 @@
+{% extends 'base-front.html.twig' %}
+
+{% block body %}
+
+	<div class="banner-area banner-bg">
+		<div class="blog-widget" style="
+				justify-content: center; margin-left: 35%;">
+			<div class="sidebar-search"> {{ form_start(form) }} {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Search For Your Music 🎵'}}) }}
+
+				<button type="submit" class="fas fa-search"></button> {{ form_end(form) }}
+			</div>
+			<div class="col-md-6" style="padding: 30px;">
+				{% if qrCode %}
+					<img src="{{ qrCode }}" alt="qr-code">
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

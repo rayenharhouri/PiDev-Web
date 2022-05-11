@@ -1,0 +1,19 @@
+{% for produit in produits %}
+    <tr>
+        <td>{{ produit.idProduit }}</td>
+        <td>{{ produit.typeProduit }}</td>
+        <td>{{ produit.quantite }}</td>
+        <td>{{ produit.prix }}</td>
+        <td><img src="{{ asset('assets/images/produits/'~produit.image) }}" style="width: 150px;width: 150px;"></td>
+        <td>{{ produit.idFournisseur.nomFournisseur }}</td>
+
+        <td>
+            <a class="btn btn-warning" href="{{ path('app_produit_show', {'idProduit': produit.idProduit}) }}">show</a>
+            <a class="btn btn-danger" href="{{ path('app_produit_edit', {'idProduit': produit.idProduit}) }}">edit</a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="6">no records found</td>
+    </tr>
+{% endfor %}

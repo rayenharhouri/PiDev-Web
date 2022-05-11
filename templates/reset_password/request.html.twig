@@ -1,0 +1,19 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}    {% for flash_error in app.flashes('reset_password_error') %}
+    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+{% endfor %}
+
+    {{ form_start(requestForm) }}
+    {{ form_widget(requestForm.email) }}
+    <button class="btn btn-primary">Reinitialiser</button>
+    <div>
+        <small>
+            Si on trouvra une correspodance on vous enverai un Mail de recuperation
+        </small>
+    </div>
+
+
+    {{ form_end(requestForm) }}{% endblock %}
+

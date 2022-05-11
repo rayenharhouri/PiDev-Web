@@ -1,0 +1,37 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Fournisseur index{% endblock %}
+
+{% block body %}
+    <h1>Fournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFournisseur</th>
+                <th>NomFournisseur</th>
+                <th>NumTel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td>{{ fournisseur.idFournisseur }}</td>
+                <td>{{ fournisseur.nomFournisseur }}</td>
+                <td>{{ fournisseur.numTel }}</td>
+                <td>
+                    <a href="{{ path('app_fournisseur_show', {'idFournisseur': fournisseur.idFournisseur}) }}">show</a>
+                    <a href="{{ path('app_fournisseur_edit', {'idFournisseur': fournisseur.idFournisseur}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fournisseur_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,735 @@
+{% extends 'base-front.html.twig' %}
+
+{% block head %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ELAAB</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.png')}}">
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- CSS here -->
+
+
+
+
+
+
+            <style>
+                /* =============================== CHATBOT ============================= */
+                .nodeco {
+                    background: none;
+                    color: inherit;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                }
+                .nodeco:hover {
+                    background: none;
+                    color: #20c997;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                }
+                .nodeco:active {
+                    background: none;
+                    color: green;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                }
+                .open-button {
+
+
+                    border: none;
+                    cursor: pointer;
+                    opacity: 0.8;
+
+                    bottom: 23px;
+                    right: 28px;
+                    width: 280px;
+                }
+
+
+                /* CSS */
+                .open-button,
+                .open-button:after {
+                    width: 150px;
+                    height: 76px;
+                    line-height: 78px;
+                    font-size: 20px;
+                    font-family: 'Bebas Neue', sans-serif;
+                    background: linear-gradient(45deg, transparent 5%, #20c997 5%);
+                    border: 0;
+                    color: #fff;
+                    z-index: 1;
+                    letter-spacing: 3px;
+                    box-shadow: 6px 0px 0px #00E6F6;
+                    outline: transparent;
+                    position: fixed;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    touch-action: manipulation;
+                }
+
+                .open-button:after {
+                    --slice-0: inset(50% 50% 50% 50%);
+                    --slice-1: inset(80% -6px 0 0);
+                    --slice-2: inset(50% -6px 30% 0);
+                    --slice-3: inset(10% -6px 85% 0);
+                    --slice-4: inset(40% -6px 43% 0);
+                    --slice-5: inset(80% -6px 5% 0);
+
+                    content: 'ALTERNATE TEXT';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #20c997 5%);
+                    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+                    clip-path: var(--slice-0);
+                }
+
+                .open-button:hover:after {
+                    animation: 1s glitch;
+                    animation-timing-function: steps(2, end);
+                }
+
+                @keyframes glitch {
+                    0% {
+                        clip-path: var(--slice-1);
+                        transform: translate(-20px, -10px);
+                    }
+                    10% {
+                        clip-path: var(--slice-3);
+                        transform: translate(10px, 10px);
+                    }
+                    20% {
+                        clip-path: var(--slice-1);
+                        transform: translate(-10px, 10px);
+                    }
+                    30% {
+                        clip-path: var(--slice-3);
+                        transform: translate(0px, 5px);
+                    }
+                    40% {
+                        clip-path: var(--slice-2);
+                        transform: translate(-5px, 0px);
+                    }
+                    50% {
+                        clip-path: var(--slice-3);
+                        transform: translate(5px, 0px);
+                    }
+                    60% {
+                        clip-path: var(--slice-4);
+                        transform: translate(5px, 10px);
+                    }
+                    70% {
+                        clip-path: var(--slice-2);
+                        transform: translate(-10px, 10px);
+                    }
+                    80% {
+                        clip-path: var(--slice-5);
+                        transform: translate(20px, -10px);
+                    }
+                    90% {
+                        clip-path: var(--slice-1);
+                        transform: translate(-10px, 0px);
+                    }
+                    100% {
+                        clip-path: var(--slice-1);
+                        transform: translate(0);
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    .open-button,
+                    .open-button:after {
+                        width: 200px;
+                        height: 86px;
+                        line-height: 88px;
+                    }
+                }
+
+                /* The popup chat - hidden by default */
+                .chat-popup {
+                    display: none;
+                    position: fixed;
+                    bottom: 0;
+                    right: 15px;
+                    border: 3px solid #74245f;
+                    z-index: 9;
+                }
+                /* Add styles to the form container */
+                .form-container {
+                    max-width: 420px;
+                    padding: 10px;
+                    background: rgba(207,102,180, 0.8);
+
+                }
+                /* Full-width textarea */
+                .form-container textarea {
+                    width: 100%;
+                    padding: 15px;
+                    margin: 5px 0 22px 0;
+                    border: none;
+                    background: #f1f1f1;
+                    resize: none;
+                    min-height: 200px;
+                }
+                /* When the textarea gets focus, do something */
+                .form-container textarea:focus {
+                    background-color: red;
+                    outline: none;
+                }
+                /* Set a style for the submit/send button */
+                .form-container .btn {
+                    background-color: #fdb819;
+                    color: white;
+                    padding: 8px 10px;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom:10px;
+                    opacity: 0.8;
+                }
+                /* Add a red background color to the cancel button */
+                .form-container .cancel {
+                    background-color: red;
+                }
+                /* Add some hover effects to buttons */
+                .form-container .btn:hover, .open-button:hover {
+                    opacity: 1;
+                }
+
+                .containe{
+                    width : 400px ;
+                    height : 400px ;
+                    overflow : auto ;
+                    border : 1px solid #BF996B ;
+                }
+                .bot {
+                    background-image: linear-gradient(to bottom right, #F30DFF,#7006C7);
+                    border-radius : 15px ;
+                    padding : 4px ;
+                    width : 300px ;
+                    color : white ;
+                    margin : 2px ;
+                    border-top-left-radius: 0px;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                }
+                .botSender {
+                    background : #0D8BFB ;
+                    border-radius : 10px ;
+                    padding : 4px 6px 4px 6px ;
+                    border : 2px solid black ;
+                    margin : 2px ;
+                    font-size: 15px;
+                    font-family : Mark\ Pro,sans-serif;
+
+                }
+                .botSender:hover {
+                    background : rgba(19, 173, 234, 1) ;
+                    border-radius : 10px ;
+                    padding : 4px 6px 4px 6px ;
+                    border : 1px solid black ;
+                    margin : 2px ;
+                    font-size: 15px;
+                    font-family : Mark\ Pro,sans-serif;
+                }
+                .botText {
+                    margin : 2px ;
+                    color : black ;
+                    font-size: 16px;
+                    font-family : Mark\ Pro,sans-serif;
+                }
+                /* ============== CLIENT ================ */
+                .client {
+                    background-image: linear-gradient(to bottom right, #FDFCE9,#0B58E3);
+                    border-radius : 15px ;
+                    padding : 4px ;
+                    width : 300px ;
+                    color : black ;
+                    margin : 8px ;
+                    border-top-right-radius: 0px;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    float : right ;
+                }
+                .cancelButton {
+                    padding : 0px 8px 0px 8px ;
+                    border : 1px solid black ;
+                    background-color : red;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    float : right ;
+                    background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2);
+                }
+                .cancelButton:hover {
+                    padding : 0px 8px 0px 8px ;
+                    border : 1px solid black ;
+                    background-color : red;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    float : right ;
+                    background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2);
+                }
+
+            </style>
+
+            <button class="open-button" onclick="openForm()">ChatBot</button>
+
+            <div class="chat-popup" id="myForm">
+                <div action="/action_page.php" class="form-container">
+                    <button class="nodeco cancelButton" onclick="closeForm()">
+                        -
+                    </button>
+
+
+                    <table style="width :60% ; ">
+                        <tr>
+                            <td valign="center" align="left"><img style="width : 26px ; height : 40px" src="https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG-HD-Image.png"></td>
+                            <td valign="center">
+                                <h4 >ELAAB CHATBOT</h4>
+                            </td>
+
+                        </tr>
+                    </table>
+
+
+                    <label for="msg">
+                        <b> </b>
+                    </label>
+                    <!--textarea placeholder="Type message.." name="msg" required></textarea-->
+
+                    <div class="containe" id="chat">
+
+                        <div class="bot">
+                            <div class="botText">
+                                Hello dear, how can we help you ?
+                            </div>
+                            <button class="nodeco botSender" onclick="botReply(this.value)" value="1" id="StoreLocator">Where are we located? </button>
+                            <button class="nodeco botSender" onclick="botReply(this.value)" value="2" id="Products">How to publish a topic ?</button>
+                            <button class="nodeco botSender" onclick="botReply(this.value)" value="3" id="EventPublish">How to Comment ?</button>
+                            <button class="nodeco botSender" onclick="botReply(this.value)" value="4" id="TechNews">Want some News ?</button>
+                            <button class="nodeco botSender" onclick="botReply(this.value)" value="5" id="Music">Try Our New QrMusic Generator 🎧🎧 </button>
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div style="height : 40px ; ">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                }
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+                function botReply(value) {
+                    if (value==1) {
+                        // ========== client ==========
+                        var containe = document.createElement("div");
+                        containe.classList.add('client');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text2 = document.getElementById("StoreLocator").innerHTML ;
+                        var text = document.createTextNode(text2);
+                        message.appendChild(text);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                        var newElem1 = document.createElement("BR");
+                        var newElem2 = document.createElement("BR");
+                        var newElem3 = document.createElement("BR");
+                        element.appendChild(newElem1) ;
+                        element.appendChild(newElem2) ;
+                        element.appendChild(newElem3) ;
+                        // ======== bot =================
+                        var containe = document.createElement("div");
+                        containe.classList.add('bot');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text = document.createTextNode("Find us here : ");
+                        message.appendChild(text);
+                        var a = document.createElement('a');
+                        var linkText = document.createTextNode("Store Locator");
+                        a.appendChild(linkText);
+                        //a.title = "my title text";
+                        a.href = "https://www.google.com/maps/place/ESPRIT/@36.8992878,10.1893674,17z/data=!3m1!4b1!4m5!3m4!1s0x12e2cb7454c6ed51:0x683b3ab5565cd357!8m2!3d36.8992878!4d10.1893674";
+                        a.style="color : white ; " ;
+                        message.appendChild(a);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+
+                    } else if (value=="2") {
+                        // ========== client ==========
+                        var containe = document.createElement("div");
+                        containe.classList.add('client');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text2 = document.getElementById("Products").innerHTML ;
+                        var text = document.createTextNode(text2);
+                        message.appendChild(text);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                        var newElem1 = document.createElement("BR");
+                        var newElem2 = document.createElement("BR");
+                        var newElem3 = document.createElement("BR");
+                        element.appendChild(newElem1) ;
+                        element.appendChild(newElem2) ;
+                        element.appendChild(newElem3) ;
+                        // ======== bot =================
+                        var containe = document.createElement("div");
+                        containe.classList.add('bot');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text = document.createTextNode("Go to BlogDetails Click on Post Publication You want To try it now Click Below : ");
+                        message.appendChild(text);
+                        var a = document.createElement('a');
+                        var linkText = document.createTextNode("Click Me");
+                        a.appendChild(linkText);
+                        //a.title = "my title text";
+                        a.href = "{{ path('app_pubb_new') }}";
+                        a.style="color : white ; " ;
+                        message.appendChild(a);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+
+
+                    } else if (value=="3") {
+                        // ========== client ==========
+                        var containe = document.createElement("div");
+                        containe.classList.add('client');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text2 = document.getElementById("EventPublish").innerHTML ;
+                        var text = document.createTextNode(text2);
+                        message.appendChild(text);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                        var newElem1 = document.createElement("BR");
+                        var newElem2 = document.createElement("BR");
+                        var newElem3 = document.createElement("BR");
+                        element.appendChild(newElem1) ;
+                        element.appendChild(newElem2) ;
+                        element.appendChild(newElem3) ;
+                        // ======== bot =================
+                        var containe = document.createElement("div");
+                        containe.classList.add('bot');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text = document.createTextNode("Go to BlogDetails Find the topic that you want to put ur comment on Then press on the icon of comment. Try it now ?");
+                        message.appendChild(text);
+                        var a = document.createElement('a');
+                        var linkText = document.createTextNode("Click Me ");
+                        a.appendChild(linkText);
+                        //a.title = "my title text";
+                        a.href = "{{ path('commentaire') }}";
+                        a.style="color : white ; " ;
+                        message.appendChild(a);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                    } else if (value=="4") {
+                        // ========== client ==========
+                        var containe = document.createElement("div");
+                        containe.classList.add('client');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text2 = document.getElementById("TechNews").innerHTML ;
+                        var text = document.createTextNode(text2);
+                        message.appendChild(text);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                        var newElem1 = document.createElement("BR");
+                        var newElem2 = document.createElement("BR");
+                        var newElem3 = document.createElement("BR");
+                        element.appendChild(newElem1) ;
+                        element.appendChild(newElem2) ;
+                        element.appendChild(newElem3) ;
+                        // ======== bot =================
+                        const settings = {
+                            "async": true,
+                            "crossDomain": true,
+                            "url": "https://tech-news3.p.rapidapi.com/venturebeat",
+                            "method": "GET",
+                            "headers": {
+                                "x-rapidapi-host": "tech-news3.p.rapidapi.com",
+                                "x-rapidapi-key": "0df9a64d4dmshef637b6555ab817p197c06jsn23b1172de7c8"
+                            }
+                        };
+                        $.ajax(settings).done(function (response) {
+                            var containe = document.createElement("div");
+                            containe.classList.add('bot');
+                            var message = document.createElement("div");
+                            message.classList.add('botText');
+                            let x = Math.floor((Math.random() * 20) + 1);
+                            var text = document.createTextNode(response[x]['title']);
+                            message.appendChild(text);
+
+                            containe.appendChild(message);
+                            var element = document.getElementById("chat");
+                            element.appendChild(containe);
+                        });
+
+                    } else if  (value=="5"){
+                        // ========== client ==========
+                        var containe = document.createElement("div");
+                        containe.classList.add('client');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text2 = document.getElementById("Music").innerHTML ;
+                        var text = document.createTextNode(text2);
+                        message.appendChild(text);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                        var newElem1 = document.createElement("BR");
+                        var newElem2 = document.createElement("BR");
+                        var newElem3 = document.createElement("BR");
+                        element.appendChild(newElem1) ;
+                        element.appendChild(newElem2) ;
+                        element.appendChild(newElem3) ;
+                        // ======== bot =================
+                        var containe = document.createElement("div");
+                        containe.classList.add('bot');
+                        var message = document.createElement("div");
+                        message.classList.add('botText');
+                        var text = document.createTextNode("We Developped a QrCode Genarator to Let you listen To your favorite Music 💓 Want To Try IT ? :        ");
+                        message.appendChild(text);
+                        var a = document.createElement('a');
+                        var linkText = document.createTextNode("Click Me 🎧🎧 ");
+                        a.appendChild(linkText);
+                        //a.title = "my title text";
+                        a.href = "{{ path('homepage') }}";
+                        a.style="color : white ; " ;
+                        message.appendChild(a);
+                        containe.appendChild(message);
+                        var element = document.getElementById("chat");
+                        element.appendChild(containe);
+                    }
+
+                }
+            </script>
+            <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/odometer.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+
+
+    </head>
+{% endblock %}
+{% block body %}
+<main>
+
+            <!-- breadcrumb-area -->
+            <section class="breadcrumb-area breadcrumb-bg breadcrumb-bg-two">
+                <div class="breadcrumb-overflow">
+                    <div class="container">
+                        <div class="breadcrumb-inner">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="breadcrumb-content">
+                                        <h2 class="title">latest news</h2>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">latest news</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-none d-md-block">
+                                    <div class="breadcrumb-img-two text-center">
+                                        <img src="assets/img/images/breadcrumb_img04.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="breadcrumb-shape shape-1 wow slideInLeft" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape01.png" alt=""></div>
+                    <div class="breadcrumb-shape shape-2 wow slideInRight" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape02.png" alt=""></div>
+                </div>
+            </section>
+            <!-- breadcrumb-area-end -->
+
+            <!-- blog-area -->
+            <section class="blog-area black-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="blog-item mb-60">
+                                <div class="blog-thumb mb-50">
+                                    <a href="blog-details.html"><img src="assets/img/blog/blog_img01.jpg" alt=""></a>
+                                </div>
+                                 {% for publication in publications %} 
+                                <div class="blog-content">
+                                    <h2 class="title"><a href="blog-details.html">{{ publication.topic }}</a></h2>
+                                    <div class="blog-meta">
+                                        <ul>
+                                            <li>BY <a href="#">Rayen Harhouri</a></li>
+                                            <li><i class="far fa-clock"></i>{{ publication.datePub ? publication.datePub|date('Y-m-d') : '' }}</li>
+                                            <li><a href="#"><i class="far fa-comment"></i>{{ publication.nbreCommentaires }}</a></li>
+                                            <li><i class="far fa-eye"></i>4,735 VIEWS</li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-content-bottom">
+                                        <a href="{{ path('commentaire') }}" class="btn">Read more</a>
+                                        <ul class="social">
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                 {% endfor %} 
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="col-lg-4">
+                            <aside class="blog-sidebar">
+                                <div class="blog-widget">
+                                    <h4 class="widget-title">Searching</h4>
+                                    <div class="sidebar-search">
+                                        <form action="#">
+                                            <input type="text" placeholder="Search...">
+                                            <button><i class="fas fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="blog-widget">
+                                    <h4 class="widget-title">CATEGORIES</h4>
+                                    <div class="blog-categories">
+                                        <ul>
+                                            <li>
+                                                <a href="blog-details.html" data-background="assets/img/blog/categories_img01.jpg">
+                                                    shooting games <span>26</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-details.html" data-background="assets/img/blog/categories_img02.jpg">
+                                                    arcade free games <span>14</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-details.html" data-background="assets/img/blog/categories_img03.jpg">
+                                                    online games <span>16</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="blog-widget">
+                                    <h4 class="widget-title">Recent Post</h4>
+                                    <div class="rc-post-list">
+                                        <ul>
+                                            <li>
+                                                <div class="rc-post-thumb">
+                                                    <a href="blog-details.html"><img src="assets/img/blog/rc_post_img01.jpg" alt=""></a>
+                                                </div>
+                                                <div class="rc-post-content">
+                                                    <h5 class="title"><a href="blog-details.html">online games includi shooting game</a></h5>
+                                                    <span class="date"><i class="far fa-clock"></i>march 10, 2022</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rc-post-thumb">
+                                                    <a href="blog-details.html"><img src="assets/img/blog/rc_post_img02.jpg" alt=""></a>
+                                                </div>
+                                                <div class="rc-post-content">
+                                                    <h5 class="title"><a href="blog-details.html">Best Offline Games on Android Don't It.</a></h5>
+                                                    <span class="date"><i class="far fa-clock"></i>march 10, 2022</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rc-post-thumb">
+                                                    <a href="blog-details.html"><img src="assets/img/blog/rc_post_img03.jpg" alt=""></a>
+                                                </div>
+                                                <div class="rc-post-content">
+                                                    <h5 class="title"><a href="blog-details.html">Best Offline Games on IOS Devices Need You.</a></h5>
+                                                    <span class="date"><i class="far fa-clock"></i>march 10, 2022</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="blog-widget">
+                                    <h4 class="widget-title">Newsletter</h4>
+                                    <div class="sidebar-newsletter text-center">
+                                        <div class="sn-thumb mb-30">
+                                            <img src="assets/img/blog/newsletter_img.png" alt="">
+                                        </div>
+                                        <div class="sn-content">
+                                            <p>A newsletter is an email you can send to customers!</p>
+                                            <form action="#">
+                                                <input type="text" placeholder="Enter email">
+                                                <button>Subscribe Now</button>
+                                            </form>
+                                            <p class="last-text">Don’t worry, we don’t spam</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-widget">
+                                    <h4 class="widget-title">tagS</h4>
+                                    <ul class="shop-sidebar-tags">
+                                        <li><a href="#">game</a></li>
+                                        <li><a href="#">offline</a></li>
+                                        <li><a href="#">online gaming</a></li>
+                                        <li><a href="#">shooting</a></li>
+                                        <li><a href="#">online games</a></li>
+                                        <li><a href="#">X-box</a></li>
+                                        <li><a href="#">zombie games</a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- blog-area-end -->
+
+        </main>
+
+
+        
+{% endblock %}

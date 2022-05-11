@@ -1,0 +1,54 @@
+
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+<!-- shop-area -->
+<section class="inner-shop-area black-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <div class="row justify-content-center">
+                    {% for produit in produit %}
+                        <div class="col-md-6 col-sm-9">
+                        <div class="shop-item mb-60">
+                            <div class="shop-thumb">
+                                <img src="{{ asset('assets1/img/shop/shop_wrap_img02.png')}}" alt="img" class="shape">
+                                <img src="{{ asset('assets/images/produits/'~ produit.image) }}" style="width: 270px; height: 198px;" alt="img" class="shop-img">
+                                <div class="shop-date">
+                                    <span>in 4 days</span>
+                                </div>
+                                <div class="shop-share">
+                                    <a href="shop-details.html"><i class="fas fa-share-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="shop-content">
+                                <div class="shop-content-top">
+                                    <div class="shop-title">
+                                        <h5 class="title">{{ produit.typeProduit }}</h5>
+                                        <p>{{ produit.idFournisseur.nomFournisseur }}</p>
+                                    </div>
+                                    <div class="price">
+                                        <span>{{ produit.prix }}DT</span>
+                                    </div>
+                                </div>
+                                <div class="shop-content-bottom">
+                                    <div class="shop-btn">
+                                        <a href="shop-details.html" class="btn"><i class="fas fa-plus"></i>add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="pagination-wrap mt-10">
+                    {{ knp_pagination_render(produit) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- shop-area-end -->
+{% endblock %}

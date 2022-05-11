@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/utilisateur")
@@ -75,6 +76,17 @@ class UtilisateurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $utilisateur->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $fileName
+                );
+            } catch (FileException $e){
+
+            }
+            $utilisateur->setImage($fileName);
             $utilisateurRepository->add($utilisateur);
             return $this->redirectToRoute('acceuil', [], Response::HTTP_SEE_OTHER);
         }

@@ -1,0 +1,205 @@
+{% extends 'base-front.html.twig' %}
+{% block body %}
+	<main>
+
+		<!-- breadcrumb-area -->
+		<section class="breadcrumb-area breadcrumb-bg breadcrumb-bg-two">
+			<div class="breadcrumb-overflow">
+				<div class="container">
+					<div class="breadcrumb-inner">
+						<div class="row align-items-center">
+							<div class="col-md-6">
+								<div class="breadcrumb-content">
+									<h2 class="title">Blog Details</h2>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item">
+												<a href="index-2.html">Blog</a>
+											</li>
+											<li class="breadcrumb-item active" aria-current="page">Details</li>
+										</ol>
+									</nav>
+								</div>
+							</div>
+							<div class="col-md-6 d-none d-md-block">
+								<div class="breadcrumb-img-two text-center">
+									<img src="assets/img/images/breadcrumb_img04.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="breadcrumb-shape shape-1 wow slideInLeft" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape01.png" alt=""></div>
+				<div class="breadcrumb-shape shape-2 wow slideInRight" data-wow-delay=".2s" data-wow-duration="2.5s"><img src="assets/img/bg/breadcrumb_shape02.png" alt=""></div>
+			</div>
+		</section>
+		<!-- breadcrumb-area-end -->
+
+		<!-- blog-details-area -->
+		<section class="blog-details-area black-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div style="margin-left:40%;margin-bottom:20px;">
+							<button class="btn" type="submit" onclick="location.href='{{ path('app_pubb_new') }}'">POST PUBLICATION</button>
+						</div>
+						{<div class="blog-thumb mb-50">
+							<img src="assets/img/blog/blog_img01.jpg" alt="">
+						</div>
+						{% for pub in publications %}
+							<!-- blog-details-area -->
+							<div class="blog-item mb-60">
+
+								<div class="blog-content blog-details-content">
+									<h4 class="small-title">RAYEN HARHOURI</h4>
+									<h2 class="title">{{ pub.topic }}</h2>
+									<div class="blog-meta">
+										<ul>
+											<li>
+												<i class="far fa-clock">{{ pub.datePub ? pub.datePub|date('Y-m-d') : '' }}</i>
+											</li>
+											<li>
+												<a href="{{ path('app_comment_new' , {'id': pub.id}) }}">
+													<i class="far fa-comment"></i> {{ pub.nbreCommentaires }}</a>
+											</li>
+											<li>
+
+												<a href="{{ path('app_pubb_edit' , {'id': pub.id}) }}"></a>
+												<i class="fa fa-eye"></i></li>
+										</ul>
+									</div>
+
+									{# <------------------Commentaire--------------------------->#}
+									{% for c in commentaires %}
+										{% if pub.id == c.publication.id %}
+											<blockquote>
+												<p>“ {{ c.comment }}
+												</p>
+												<cite>Rayen Harhouri</cite>
+
+											</blockquote>
+										{% endif %}
+										{# <------------------EndCommentaire--------------------------->#}
+									{% endfor %}
+								</div>
+							</div>
+
+							<!-- blog-details-area-end -->
+						{% endfor %}
+
+						<div class="blog-next-prev mb-75">
+							<a href="#">
+								<i class="fas fa-angle-double-left"></i>GO BACK TO BLOG</a>
+						</div>
+
+					</div>
+					<div class="col-lg-4">
+						<aside class="blog-sidebar">
+							<div class="blog-widget">
+								<h4 class="widget-title">Searching</h4>
+								<div class="sidebar-search">
+									<form action="#">
+										<input type="text" placeholder="Search...">
+										<button>
+											<i class="fas fa-search"></i>
+										</button>
+									</form>
+								</div>
+							</div>
+							<div class="blog-widget">
+								<h4 class="widget-title">CATEGORIES</h4>
+								<div class="blog-categories">
+									<ul>
+										<li><a href="blog-details.html" data-background="assets/img/blog/categories_img01.jpg">shooting games<span>26</span></a></li>
+										<li><a href="blog-details.html" data-background="assets/img/blog/categories_img02.jpg">arcade free games<span>14</span></a></li>
+										<li><a href="blog-details.html" data-background="assets/img/blog/categories_img03.jpg">online games<span>16</span></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="blog-widget">
+								<h4 class="widget-title">Recent Post</h4>
+								<div class="rc-post-list">
+									<ul>
+										<li>
+											<div class="rc-post-thumb">
+												<a href="blog-details.html"><img src="assets/img/blog/rc_post_img01.jpg" alt=""></a>
+											</div>
+											<div class="rc-post-content">
+												<h5 class="title">
+													<a href="blog-details.html">online games includi shooting game</a>
+												</h5>
+												<span class="date">
+													<i class="far fa-clock"></i>march 7, 2022</span>
+											</div>
+										</li>
+										<li>
+											<div class="rc-post-thumb">
+												<a href="blog-details.html"><img src="assets/img/blog/rc_post_img02.jpg" alt=""></a>
+											</div>
+											<div class="rc-post-content">
+												<h5 class="title">
+													<a href="blog-details.html">Best Offline Games on Android Don't It.</a>
+												</h5>
+												<span class="date">
+													<i class="far fa-clock"></i>march 7, 2022</span>
+											</div>
+										</li>
+										<li>
+											<div class="rc-post-thumb">
+												<a href="blog-details.html"><img src="assets/img/blog/rc_post_img03.jpg" alt=""></a>
+											</div>
+											<div class="rc-post-content">
+												<h5 class="title">
+													<a href="blog-details.html">Best Offline Games on IOS Devices Need You.</a>
+												</h5>
+												<span class="date">
+													<i class="far fa-clock"></i>march 10, 2022</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="blog-widget">
+								<h4 class="widget-title">Newsletter</h4>
+								<div class="sidebar-newsletter text-center">
+									<div class="sn-thumb mb-30">
+										<img src="assets/img/blog/newsletter_img.png" alt="">
+									</div>
+
+								</div>
+							</div>
+							<div class="blog-widget">
+								<h4 class="widget-title">tagS</h4>
+								<ul class="shop-sidebar-tags">
+									<li>
+										<a href="#">game</a>
+									</li>
+									<li>
+										<a href="#">offline</a>
+									</li>
+									<li>
+										<a href="#">online gaming</a>
+									</li>
+									<li>
+										<a href="#">shooting</a>
+									</li>
+									<li>
+										<a href="#">online games</a>
+									</li>
+									<li>
+										<a href="#">X-box</a>
+									</li>
+									<li>
+										<a href="#">zombie games</a>
+									</li>
+								</ul>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- blog-details-area-end -->
+
+	</main>
+{% endblock %}

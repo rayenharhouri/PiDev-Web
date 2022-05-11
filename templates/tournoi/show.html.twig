@@ -1,0 +1,52 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block Content %}
+
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4"> Tournoi</h1>
+
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+
+        <h1>Tournoi</h1>
+
+        <table  id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+            <tbody>
+                <tr>
+                    <th>IdTournoi</th>
+                    <td>{{ tournoi.idTournoi }}</td>
+                </tr>
+                <tr>
+                    <th>NombreEquipe</th>
+                    <td>{{ tournoi.nombreEquipe }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ tournoi.date ? tournoi.date|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>TypeJeu</th>
+                    <td>{{ tournoi.typeJeu }}</td>
+                </tr>
+                <tr>
+                    <th>Prix</th>
+                    <td>{{ tournoi.prix }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-info" href="{{ path('app_tournoi_index') }}">back to list</a>
+
+        <a class="btn btn-primary" href="{{ path('app_tournoi_edit', {'idTournoi': tournoi.idTournoi}) }}">edit</a>
+
+        {{ include('tournoi/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+
+{% endblock %}

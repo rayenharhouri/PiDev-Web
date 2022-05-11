@@ -25,6 +25,8 @@
     <link href="{{ asset("assets-back/css/icons.min.css") }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset("assets-back/css/app.min.css") }}" id="app-style" rel="stylesheet" type="text/css" />
+    {% block stylesheet %}
+    {% endblock %}
     </head>
 
     <body>
@@ -327,75 +329,133 @@
                                     <span data-key="t-authentication">Gestion Utils.</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ asset('/admin/admins') }}" data-key="t-login">Admins</a></li>
-                                    <li><a href="{{ asset('/admin/employees') }}" data-key="t-register">Employee</a></li>
-                                    <li><a href="{{ asset('/admin/utilisateurs') }}" data-key="t-recover-password">Utilisateurs</a></li>
+                                    <li><a href="{{ asset('/admine/admins') }}" data-key="t-login">Admins</a></li>
+                                    <li><a href="{{ asset('/admine/utilisateurs') }}" data-key="t-recover-password">Utilisateurs</a></li>
                                 </ul>
                             </li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <li>
-                                <a href="{{ asset('/admin/equipes') }}">
+                                <a href="{{ asset('/admine/equipes') }}">
                                     <i data-feather="pie-chart"></i>
                                     <span data-key="t-charts">Gestion Equi.</span>
                                 </a>
 
                             </li>
 
+
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="cpu"></i>
-                                    <span data-key="t-icons">Icons</span>
+                                    <i data-feather="share-2"></i>
+                                    <span data-key="t-multi-level">Produits</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/icons-boxicons.html" data-key="t-boxicons">Boxicons</a></li>
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/icons-materialdesign.html" data-key="t-material-design">Material Design</a></li>
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/icons-dripicons.html" data-key="t-dripicons">Dripicons</a></li>
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/icons-fontawesome.html" data-key="t-font-awesome">Font Awesome 5</a></li>
+                                    <li><a href="{{ path('app_produit_index') }}" data-key="t-level-1-1">Les Produits</a></li>
+                                    <li><a href="{{ path('stats') }}" data-key="t-level-1-1">Statistique</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="map"></i>
-                                    <span data-key="t-maps">Maps</span>
+                                <a href="{{ path('app_salle_jeu_index') }}">
+                                    <i data-feather="pie-chart"></i>
+                                    <span data-key="t-charts">Salle De Jeu</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/maps-google.html" data-key="t-g-maps">Google</a></li>
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/maps-vector.html" data-key="t-v-maps">Vector</a></li>
-                                    <li><a href="../../../../Users/melek/Downloads/PiDev-Web-master/PiDev-Web-master/BackOffice/layouts/maps-leaflet.html" data-key="t-l-maps">Leaflet</a></li>
-                                </ul>
+
+                            </li>
+                            <li>
+                                <a href="{{ path('app_tournoi_index') }}">
+                                    <i data-feather="pie-chart"></i>
+                                    <span data-key="t-charts">Les Tournois</span>
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a href="{{ path('app_fournisseur_index') }}">
+                                    <i data-feather="pie-chart"></i>
+                                    <span data-key="t-charts">Les Fournisseurs</span>
+                                </a>
+
+                            </li>
+
+                                <li>
+                                    <a href="{{ path('facture_index') }}">
+                                        <i data-feather="home"></i>
+                                        <span data-key="t-dashboard">Facture</span>
+                                    </a>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="{{ path('commande_index') }}">
+                                        <i data-feather="layout"></i>
+                                        <span data-key="t-horizontal">Commande</span>
+                                    </a>
+                                </li>
+
+                            <li>
+                                <a href="{{ path('app_comment_index') }}">
+                                    <i data-feather="layout"></i>
+                                    <span data-key="t-horizontal">Commentaires</span>
+                                </a>
                             </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="share-2"></i>
-                                    <span data-key="t-multi-level">Multi Level</span>
+                                    <span data-key="t-multi-level">Publications</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="javascript: void(0);" data-key="t-level-1-1">Level 1.1</a></li>
-                                    <li>
-                                        <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Level 1.2</a>
-                                        <ul class="sub-menu" aria-expanded="true">
-                                            <li><a href="javascript: void(0);" data-key="t-level-2-1">Level 2.1</a></li>
-                                            <li><a href="javascript: void(0);" data-key="t-level-2-2">Level 2.2</a></li>
-                                        </ul>
-                                    </li>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ path('Lc') }}" data-key="t-level-1-1">Liste</a></li>
+                                    <li><a href="{{ path('admin_pubb_new') }}" data-key="t-level-1-1">New</a></li>
                                 </ul>
                             </li>
+
+                                <li>
+                                    <a href="{{ path('question_index') }}">
+                                        <i data-feather="layout"></i>
+                                        <span data-key="t-horizontal">Question</span>
+                                    </a>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="{{ path('quizs_index') }}">
+                                        <i data-feather="layout"></i>
+                                        <span data-key="t-horizontal">Quizs</span>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="{{ path('acceuil') }}">
+                                        <i data-feather="layout"></i>
+                                        <span data-key="t-horizontal">Go To Front</span>
+                                    </a>
+                                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         </ul>
 
@@ -434,7 +494,7 @@
                         </div>
                         <!-- end page title -->
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-8 col-lg-4">
                                 {% block body %} {% endblock %}
                             </div><!-- end col -->
                         </div>
@@ -631,8 +691,10 @@
     <script src="{{ asset("assets-back/js/pages/dashboard.init.js") }}"></script>
 
     <script src="{{ asset("assets-back/js/app.js") }}"></script>
+
     </body>
 
-
+{% block javascript %}
+{% endblock %}
 <!-- Mirrored from themesbrand.com/minia/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Feb 2022 22:47:45 GMT -->
 </html>

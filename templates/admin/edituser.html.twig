@@ -2,5 +2,8 @@
 {% block titre %}Modifier Un Utilisatuers {% endblock %}
 
 {% block body %}
-    {{ form(UtilisateurForm) }}
+    {{ form_start(UtilisateurForm ) }}
+    <button type="submit"  class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+    {{ form_end(UtilisateurForm ) }}
+
 {% endblock %}

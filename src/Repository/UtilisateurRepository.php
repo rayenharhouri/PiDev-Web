@@ -4,9 +4,11 @@ namespace App\Repository;
 
 use App\Entity\Utilisateur;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\StringType;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -90,4 +92,24 @@ class UtilisateurRepository extends ServiceEntityRepository implements PasswordU
         ;
     }
     */
+    public function search(string $var){
+        $dql = $this->getEntityManager()->createQueryBuilder();
+        $dql->select('u')
+                ->from('App\Entity\Utilisateur', 'u')
+            ->where('u.best_game = :ch OR u.nom = :ch OR u.email = :ch Or u.prenom = :ch')
+            ->setParameter('ch', $var);
+        $query = $dql->getQuery();
+        return $query->execute();
+
+    }
+    public function tri(string $var){
+        $dql = $this->getEntityManager()->createQueryBuilder();
+        $dql->select('u')
+                ->from('App\Entity\Utilisateur', 'u')
+            ->orderBy($var);
+        $query = $dql->getQuery();
+        return $query->execute();
+
+    }
+
 }

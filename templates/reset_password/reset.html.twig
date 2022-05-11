@@ -1,0 +1,8 @@
+{% extends 'base-front.html.twig' %}
+{% block titre %}Reinitialiser votre mot de Passe{% endblock %}
+{% block body %}        {{ form_start(resetForm) }}
+    {{ form_row(resetForm.plainPassword) }}
+    <button class="btn btn-primary">Reinitialiser</button>
+    {{ form_end(resetForm) }}
+
+{% endblock %}

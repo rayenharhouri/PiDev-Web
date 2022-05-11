@@ -39,12 +39,17 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit" style="margin-left: 36%">
+    <button class="btn btn-lg btn-primary" type="submit" style="margin-left: 36%; margin-top: 30px">
         Connexion
     </button>
     <a href="{{ path('app_register') }}">
-        <button class="btn btn-lg btn-primary" type="button" style="margin-left: 31%">
+        <button class="btn btn-lg btn-primary" type="button" style="margin-left: 31%; margin-top: 20px">
             Pas De Compte ?
+        </button>
+    </a>
+    <a href="{{ path('app_forgot_password_request') }}">
+        <button class="btn btn-lg btn-primary" type="button" style="margin-left: 25%; margin-top: 20px">
+            Mot De Passe Oublié ?
         </button>
     </a>
 

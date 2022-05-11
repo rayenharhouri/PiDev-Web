@@ -5,8 +5,7 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <div class="col-4">
-        <p style="color: red">
+{#        <p style="color: red">
             {{ form_errors(registrationForm.nom) }}
             {{ form_errors(registrationForm.prenom) }}
             {{ form_errors(registrationForm.equipe) }}
@@ -31,7 +30,69 @@
         {{ form_row(registrationForm.image) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Register</button>#}
+
+
+
+
+    {{ form_start(registrationForm) }}
+        <section class="contact-area black-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="contact-wrap">
+                            <div class="contact-title">
+                                <h2 class="title"><span>Inscription</span> Regoignez Nous.</h2>
+                            </div>
+                            <div action="#" class="contact-form">
+                                <div class="form-grp">
+                                    <label for="name">Votre Nom <span>*</span></label>
+                                    {{ form_widget(registrationForm.nom) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre Prenom <span>*</span></label>
+                                    {{ form_widget(registrationForm.prenom) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre email <span>*</span></label>
+                                    {{ form_widget(registrationForm.email) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre Equipe <span>*</span></label>
+                                    {{ form_widget(registrationForm.equipe) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre "Best Game" <span>*</span></label>
+                                    {{ form_widget(registrationForm.best_game) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre Login <span>*</span></label>
+                                    {{ form_widget(registrationForm.login) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Votre Mot de Passe <span>*</span></label>
+                                    {{ form_widget(registrationForm.plainPassword) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Choisir une Image <span>*</span></label>
+                                    {{ form_widget(registrationForm.image) }}
+                                </div>
+                                <div class="form-grp">
+                                    <label for="email">Ecrir La Captcha <span>*</span> <div style="color: red">{{ form_errors(registrationForm.captcha) }}</div></label>
+                                    {{ form_widget(registrationForm.captcha) }}
+
+                                </div>
+
+                                    {{ form_row(registrationForm.agreeTerms) }}
+
+                                <button type="submit" class="btn">Inscription</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     {{ form_end(registrationForm) }}
-    </div>
 {% endblock %}

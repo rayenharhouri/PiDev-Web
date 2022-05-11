@@ -1,0 +1,42 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block Content %}
+
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4"> SalleJeu</h1>
+
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+
+    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+        <tbody>
+            <tr>
+                <th>IdSallej</th>
+                <td>{{ salle_jeu.idSallej }}</td>
+            </tr>
+            <tr>
+                <th>Nomsallej</th>
+                <td>{{ salle_jeu.nomsallej }}</td>
+            </tr>
+            <tr>
+                <th>IdTournementp</th>
+                <td>{{ salle_jeu.idTournementp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('app_salle_jeu_index') }}">back to list</a>
+
+    <a  class="btn btn-primary" href="{{ path('app_salle_jeu_edit', {'idSallej': salle_jeu.idSallej}) }}">edit</a>
+
+    {{ include('salle_jeu/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+
+{% endblock %}

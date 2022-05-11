@@ -20,6 +20,7 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+
 class UtilisateurAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
@@ -94,8 +95,11 @@ class UtilisateurAuthenticator extends AbstractFormLoginAuthenticator implements
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
+        $user = $token->getUser();
+        if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+            return new RedirectResponse($this->urlGenerator->generate('admin_app_admin'));
+        }
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         return new RedirectResponse($this->urlGenerator->generate('acceuil'));
     }
 

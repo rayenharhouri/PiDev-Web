@@ -1,0 +1,60 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block Content %}
+
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">SalleJeu</h1>
+
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                                       <th>IdSallej</th>
+                                                       <th>Nomsallej</th>
+                                                       <th>IdTournementp</th>
+                                                       <th>actions</th>
+                                                   </tr>
+                                    </thead>
+                                    <tfoot>
+                                         <tr>
+                                                        <th>IdSallej</th>
+                                                        <th>Nomsallej</th>
+                                                        <th>IdTournementp</th>
+                                                        <th>actions</th>
+                                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                       {% for salle_jeu in salle_jeus %}
+                                                  <tr>
+                                                      <td>{{ salle_jeu.idSallej }}</td>
+                                                      <td>{{ salle_jeu.nomsallej }}</td>
+                                                      <td>{{ salle_jeu.idTournementp }}</td>
+                                                      <td>
+                                                          <a class="btn btn-primary" href="{{ path('app_salle_jeu_show', {'idSallej': salle_jeu.idSallej}) }}">show</a>
+                                                          <a class="btn btn-secondary" href="{{ path('app_salle_jeu_edit', {'idSallej': salle_jeu.idSallej}) }}">edit</a>
+                                                      </td>
+                                                  </tr>
+                                              {% else %}
+                                                  <tr>
+                                                      <td colspan="4">no records found</td>
+                                                  </tr>
+                                              {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+<div class="d-flex justify-content-center" >
+   <a class="btn btn-primary" href="{{ path('app_salle_jeu_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('createpdf') }}"><button class="btn"><i class="fa fa-folder"></i>IMPRIMER PDF</button></a>
+     <a class="btn btn-info" class="tg-btn" href="{{ path('exportT') }}">Exporter Excel</a>
+
+</div>
+
+{% endblock %}

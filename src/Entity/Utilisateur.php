@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\SerializerInterface;
+
 
 /**
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
@@ -87,7 +89,7 @@ class Utilisateur implements UserInterface
      *     mimeTypesMessage = "Please upload a valid jpeg/png"
      * )
      */
-    private $image;
+    public $image;
 
     /**
      * @ORM\Column(type="boolean")
@@ -99,6 +101,7 @@ class Utilisateur implements UserInterface
      * @ORM\JoinColumn(nullable=false)
      */
     private $equipe;
+
 
     public function getId(): ?int
     {

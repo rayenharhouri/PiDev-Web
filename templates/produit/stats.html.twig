@@ -1,0 +1,38 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Statistique{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <h1>Statistique</h1>
+    <canvas id="cat" ></canvas>
+{% endblock %}
+{% block body %}
+
+
+
+{% endblock %}
+
+{% block javascript %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    let categories = document.querySelector('#cat');
+    let categgraph = new Chart(categories, {
+    type: "pie",
+    data: {
+    labels: {{ fournom|raw }},
+                datasets: [{
+                    label: 'Repartition Fournisseur',
+                    data: {{ fourcount }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ]
+
+                }]
+            }
+        });
+    </script>
+{% endblock %}

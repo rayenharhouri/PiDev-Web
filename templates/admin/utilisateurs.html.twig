@@ -3,9 +3,20 @@
 {% block body %}
     {% set route = app.request.attributes.get('_route') %}
 
-    <?php echo ?>
     <h1>Liste des Clients</h1>
+    {{ form_start(searchform) }}
+    {{ form_widget(searchform.S) }}
+
+    {{ form_widget(searchform.Recherche) }}
+    {{ form_end(searchform) }}
+
+    {{ form_start(triform) }}
+    {{ form_widget(triform.Tri) }}
+    {{ form_widget(triform.Trier) }}
+
+    {{ form_end(triform) }}
     <table class="table">
+
         <thead>
         <th>ID</th>
         <th>EMAIL</th>

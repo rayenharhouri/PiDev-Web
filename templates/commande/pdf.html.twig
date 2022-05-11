@@ -1,0 +1,72 @@
+{% block body %}
+
+<div class="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header card-header-primary">
+    <h1 align="center" style="color:blue;">Commandes</h1>
+    <h2  align="center"style="color:orange;" > List of Commandes </h2>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #reclamations {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #reclamations td, #reclamations th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #reclamations tr:nth-child(even){background-color: #f2f2f2;}
+        #reclamations tr:hover {background-color: #ddd;}
+        #reclamations th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: royalblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<table id="reclamations">
+
+    <tr>
+
+        <th>idCommande</th>
+        <th>idProduit</th>
+        <th>qte</th>
+        <th>prixTotal</th>
+        <th>idU</th>
+        <th>etat</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for commande in commande %}
+    <tr>
+
+                        <td>{{ commande.idCommande }}</td>
+                        <td>{{ commande.idProduit }}</td>
+                        <td>{{ commande.qte }}</td>
+                        <td>{{ commande.prixTotal }}</td>
+                        <td>{{ commande.idU }}</td>
+                        <td>{{ commande.etat }}</td>
+
+                        {# {% if reclamation.imgrec != null %}
+                            <td><img src="{{ asset('uploads/images/' ~ reclamation.imgrec) }}" alt="" style="width: 50px;height: 50px"> </td> 
+                        {% endif %}
+                        {% if reclamation.imgrec == null %}
+                           <td>No.Image</td> 
+                        {% endif %} #}
+                        <script>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
